@@ -11,8 +11,10 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import { withNamespaces } from 'react-i18next';
+import i18n from '../i18n';
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -35,7 +37,10 @@ export default class HomeScreen extends React.Component {
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
 
-            <Text style={styles.getStartedText}>Get started by opening</Text>
+            <Text style={styles.getStartedText}>Get started by opening - {this.props.t('title')}</Text>
+            <Text onPress={() => i18n.changeLanguage('hu')} style={styles.helpLinkText}>
+              Hungarian
+            </Text>
 
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
               <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
@@ -186,3 +191,5 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+
+export default withNamespaces()(HomeScreen);

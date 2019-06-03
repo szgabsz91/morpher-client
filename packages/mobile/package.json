@@ -13,11 +13,13 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
+    "@szgabsz91/morpher-client-shared": "1.0.0",
     "expo": "^32.0.0",
+    "i18next": "^16.0.0",
     "react": "16.5.0",
+    "react-i18next": "^9.0.10",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "react-navigation": "^3.0.9",
-    "@szgabsz91/morpher-client-shared": "1.0.0"
+    "react-navigation": "^3.0.9"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
