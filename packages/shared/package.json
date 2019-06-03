@@ -1,0 +1,12 @@
+{
+  "name": "@szgabsz91/morpher-client-shared",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo 'No tests yet'"
+  },
+  "devDependencies": {
+    "@babel/runtime": "^7.4.5"
+  }
+}

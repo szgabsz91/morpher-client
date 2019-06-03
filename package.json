@@ -1,0 +1,16 @@
+{
+  "name": "@szgabsz91/morpher-client",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test"
+  },
+  "devDependencies": {
+    "lerna": "^3.14.1"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.2.0",
+    "yarn": ">=1.16.0"
+  }
+}
