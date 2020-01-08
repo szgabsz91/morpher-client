@@ -1,6 +1,6 @@
 {
   "name": "@szg/morpher-client-mobile",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The mobile version of the Morpher Client application",
   "private": true,
   "scripts": {
@@ -16,7 +16,7 @@
     "start:ios": "react-native run-ios"
   },
   "dependencies": {
-    "@szg/morpher-client-shared": "1.0.0",
+    "@szg/morpher-client-shared": "1.0.1",
     "react": "16.9.0",
     "react-native": "0.61.5"
   },
