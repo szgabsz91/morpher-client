@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-    - "12"
+    - '12'
 addons:
     chrome: stable
 
@@ -15,3 +15,14 @@ script:
     - yarn lint
     - yarn test
     - yarn build
+
+deploy:
+    provider: script
+    skip_cleanup: true
+    script: ./scripts/publish-docker-image.sh
+    on:
+        all_branches: true
+
+env:
+    global:
+        secure: olg8FZ2r3TfPf8RvQEISO7WkgO6RE7JRozWrFNVmpQ0+73BjF9cP86ekSZ4AfX0vBaRGMbo0o+cono8v7Pyv7oDHgn1ZuxlMxthdGWnIaN6ZtMviBsBHcdrkP56qMGYnW2qHoptvzpHyzVFFjNDzpCB1m42x7vSShP+Bql7NGxVxIRsfMytK8wULXIhueVz6RrnFwZmlo5srICDB01oaqtBa7BHGXtnjX3t9yiKg7Fgl/dKRZSb9svU4xiwilBLEP3tYuGPRIQSQ3shSRzA7AalpsDTCI+8v/NmbbjJ1i37RHuLgvZsG8y5js64UIxt3JgCaDYFfw28pKORbKCdOHFLSTU/pwyK2R5JUSnPmYtVz4uFk8qqBXhL+OjLgsvTnEVebfyuY/IvC1CvPcZ/jhJ9df3J08+boTRp0hh5yai7vGCSm3n0N/hhsMWXdAeJzoaI9iX6tkA04kJ+bkIzJ0PUGxoDTjPbKyMsDlXOhUhZ0t2BAu5FiiabRwHyO3HOFEbJcnHDjMHUw86flUi7A9smrd/ePBnm3cswNnA9sTSLXk2x/7sJZPLDwvH5xkt1iHxnGhIe9MUJZduzFYbEvo3G4SgCHTmSshykWBF8BlqoGN240GNzZcC9plTOCwulseRtmUfcof84FK9h2SfxkzFYmcbr11zfocYaUEnyVqJc=
