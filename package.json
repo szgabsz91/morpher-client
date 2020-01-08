@@ -25,6 +25,7 @@
     "start:web": "lerna exec --scope @szg/morpher-client-web -- yarn start"
   },
   "devDependencies": {
+    "eslint": "6.8.0",
     "lerna": "3.20.2"
   },
   "engineStrict": true,
