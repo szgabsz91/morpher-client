@@ -1,36 +1,59 @@
 {
   "name": "@szg/morpher-client-mobile",
   "version": "1.0.0",
+  "description": "The mobile version of the Morpher Client application",
   "private": true,
-  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject",
-    "test": "node ./node_modules/jest/bin/jest.js",
-    "test:watch": "node ./node_modules/jest/bin/jest.js --watchAll",
-    "build": "echo 'Not supported yet'",
-    "build:android": "echo 'Not supported yet'",
-    "build:ios": "echo 'Not supported yet'",
-    "start:android": "echo 'Not supported yet'",
-    "start:ios": "echo 'Not supported yet'"
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "yarn build:android && yarn build:ios",
+    "build:android": "mkdir -p ./build && react-native bundle --platform android --dev false --entry-file ./App.js --bundle-output ./build/android.bundle",
+    "build:ios": "mkdir -p ./build && react-native bundle --platform ios --dev false --entry-file ./App.js --bundle-output ./build/ios.bundle",
+    "start": "react-native start",
+    "start:android": "react-native run-android",
+    "start:ios": "react-native run-ios"
   },
   "dependencies": {
-    "@expo/samples": "2.1.1",
     "@szg/morpher-client-shared": "1.0.0",
-    "expo": "^32.0.0",
-    "i18next": "^16.0.0",
-    "react": "16.5.0",
-    "react-i18next": "^9.0.10",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "react-navigation": "^3.0.9"
+    "react": "16.9.0",
+    "react-native": "0.61.5"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
-    "jest-expo": "^32.0.0"
+    "@babel/core": "7.6.2",
+    "@babel/runtime": "7.6.2",
+    "@react-native-community/eslint-config": "0.0.5",
+    "babel-jest": "24.9.0",
+    "jest": "24.9.0",
+    "metro-react-native-babel-preset": "0.56.0",
+    "react-test-renderer": "16.9.0"
   },
   "jest": {
-    "preset": "jest-expo"
-  }
+    "preset": "react-native"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.13.1",
+    "yarn": ">=1.21.1"
+  },
+  "keywords": [
+    "morpher",
+    "inflection",
+    "morphological analysis",
+    "morpher"
+  ],
+  "bugs": {
+    "url": "https://github.com/szgabsz91/morpher-client/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szgabsz91/morpher-client"
+  },
+  "author": {
+    "name": "Gabor Szabo",
+    "email": "szgabsz91@gmail.com",
+    "url": "https://github.com/szgabsz91"
+  },
+  "license": "MIT"
 }
