@@ -1,14 +1,56 @@
 {
   "name": "@szg/morpher-client-shared",
   "version": "1.0.0",
-  "main": "./src/index.js",
+  "description": "The shared module of the Morpher Client application that contains translations and HTTP services",
   "private": true,
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo 'No tests yet'",
-    "test:watch": "echo 'No tests yet'",
-    "build": "echo 'Not supported yet'"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "echo Do nothing"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.4.5"
-  }
+    "@babel/preset-env": "7.7.7",
+    "jest-fetch-mock": "3.0.1"
+  },
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "setupFiles": ["./jest.setup.js"]
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.13.1",
+    "yarn": ">=1.21.1"
+  },
+  "keywords": [
+    "morpher",
+    "inflection",
+    "morphological analysis",
+    "morpher"
+  ],
+  "bugs": {
+    "url": "https://github.com/szgabsz91/morpher-client/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szgabsz91/morpher-client"
+  },
+  "author": {
+    "name": "Gabor Szabo",
+    "email": "szgabsz91@gmail.com",
+    "url": "https://github.com/szgabsz91"
+  },
+  "license": "MIT"
 }
