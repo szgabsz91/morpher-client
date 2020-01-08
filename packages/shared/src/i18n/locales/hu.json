@@ -1,0 +1,1774 @@
+{
+    "application": {
+        "Title": "Morpher",
+        "toggleDrawerButton": {
+            "Label": "Menü kinyitása"
+        },
+        "AuthorName": "Szabó Gábor"
+    },
+
+    "home": {
+        "Title": "Főoldal",
+        "Paragraph1": "A Morpher egy ragozó és morfológiai elemző keretrendszer.",
+        "Paragraph2": "Ez az alkalmazás a Morpher API-n keresztül biztosít felhasználói felületet ahhoz, hogy ragozott alakokat generáljunk lemmából és toldaléktípus halmazból, illetve morfológiai elemzést hajtsunk végre ragozott szóalakokon.",
+        "Resources": "Anyagok:",
+        "MorpherAPI": "Morpher API",
+        "MorpherClient": "Morpher Kliens"
+    },
+
+    "inflectionGeneration": {
+        "Title": "Ragozás",
+        "input": {
+            "Label": "Lemma",
+            "RequiredError": "A lemma kötelező paraméter."
+        },
+        "button": {
+            "Label": "Ragoz"
+        }
+    },
+
+    "morphologicalAnalysis": {
+        "Title": "Morfológiai elemzés",
+        "input": {
+            "Label": "Ragozott szóalak",
+            "RequiredError": "A ragozott szóalak kötelező paraméter."
+        },
+        "button": {
+            "Label": "Elemez"
+        }
+    },
+
+    "settings": {
+        "Title": "Beállítások",
+        "LanguageChangeText": "Alkalmazás nyelvének megváltoztatása:",
+        "languages": {
+            "en": {
+                "Label": "Angol"
+            },
+            "hu": {
+                "Label": "Magyar"
+            }
+        }
+    },
+
+    "responses": {
+        "AffixTypes": "{{count}} toldalék",
+        "AffixTypes_plural": "{{count}} toldalék",
+        "AffixTypeChainProbabiityText": "Toldaléklánc valószínűsége: {{value}}",
+        "NormalizedAffixTypeChainProbabiityText": "Normalizált toldaléklánc valószínűség: {{value}}",
+        "table": {
+            "Label": "Lépések",
+            "AffixTypeHeader": "Toldaléktípus",
+            "OutputHeader": "Kimenet",
+            "ProbabilityHeader": "Valószínűség"
+        },
+        "AffixTypeProbability": "Toldaléktípus valószínűsége: {{value}}",
+        "OutputWordProbability": "Kimeneti szó valószínűsége: {{value}}",
+        "AggregatedProbability": "Aggregált valószínűség: {{value}}"
+    },
+
+    "affixTypes": {
+        "Sample": "{{baseForm}} → {{inflectedForm}}",
+        "filter": {
+            "Label": "Toldaléktípus szűrő",
+            "SelectedAffixTypeText": "Kiválasztott toldaléktípusok"
+        },
+        "EmptyMessage": "Legalább egy toldaléktípus kiválasztása kötelező.",
+
+        "/ADJ": {
+            "DisplayName": "Melléknév",
+            "SampleBaseForm": "boldog",
+            "SampleInflectedForm": ""
+        },
+        "/ADV": {
+            "DisplayName": "Határozószó",
+            "SampleBaseForm": "itt",
+            "SampleInflectedForm": ""
+        },
+        "/ART": {
+            "DisplayName": "Névelő",
+            "SampleBaseForm": "egy",
+            "SampleInflectedForm": ""
+        },
+        "/CONJ": {
+            "DisplayName": "Kötőszó",
+            "SampleBaseForm": "vagy",
+            "SampleInflectedForm": ""
+        },
+        "/DET": {
+            "DisplayName": "Névmás",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": ""
+        },
+        "/NOUN": {
+            "DisplayName": "Főnév",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": ""
+        },
+        "/NUM": {
+            "DisplayName": "Számnév",
+            "SampleBaseForm": "kettő",
+            "SampleInflectedForm": ""
+        },
+        "/ONO": {
+            "DisplayName": "Hangutánzószó",
+            "SampleBaseForm": "vau",
+            "SampleInflectedForm": ""
+        },
+        "/POSTP": {
+            "DisplayName": "Névutó",
+            "SampleBaseForm": "iránt",
+            "SampleInflectedForm": ""
+        },
+        "/PREP": {
+            "DisplayName": "Elöljárószó",
+            "SampleBaseForm": "mint",
+            "SampleInflectedForm": ""
+        },
+        "/PREV": {
+            "DisplayName": "Igekötő",
+            "SampleBaseForm": "be",
+            "SampleInflectedForm": ""
+        },
+        "/PUNCT": {
+            "DisplayName": "Írásjel",
+            "SampleBaseForm": "dot",
+            "SampleInflectedForm": ""
+        },
+        "/UTT-INT": {
+            "DisplayName": "Hangutánzószó",
+            "SampleBaseForm": "kukucs",
+            "SampleInflectedForm": ""
+        },
+        "/VERB": {
+            "DisplayName": "Ige",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": ""
+        },
+        "/ímél": {
+            "DisplayName": "/ímél",
+            "SampleBaseForm": "",
+            "SampleInflectedForm": ""
+        },
+        "<PLUR>": {
+            "DisplayName": "Többes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátok"
+        },
+        "<PLUR<FAM>>": {
+            "DisplayName": "Többes szám, összetartozó csoport",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "baráték"
+        },
+        "<POSS<1>>": {
+            "DisplayName": "Birtokos személyjel, E/1, egyes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátom"
+        },
+        "<POSS<2>>": {
+            "DisplayName": "Birtokos személyjel, E/2, egyes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátod"
+        },
+        "<POSS>": {
+            "DisplayName": "Birtokos személyjel, E/3, egyes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátja"
+        },
+        "<POSS<1><PLUR>>": {
+            "DisplayName": "Birtokos személyjel, T/1, egyes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátunk"
+        },
+        "<POSS<2><PLUR>>": {
+            "DisplayName": "Birtokos személyjel, T/2, egyes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátotok"
+        },
+        "<POSS<PLUR>>": {
+            "DisplayName": "Birtokos személyjel, T/3, egyes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátuk"
+        },
+        "<PLUR><POSS<1>>": {
+            "DisplayName": "Birtokos személyjel, E/1, többes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátaim"
+        },
+        "<PLUR><POSS<2>>": {
+            "DisplayName": "Birtokos személyjel, E/2, többes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátaid"
+        },
+        "<PLUR><POSS>": {
+            "DisplayName": "Birtokos személyjel, E/3, többes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátai"
+        },
+        "<PLUR><POSS<1><PLUR>>": {
+            "DisplayName": "Birtokos személyjel, T/1, többes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátaink"
+        },
+        "<PLUR><POSS<2><PLUR>>": {
+            "DisplayName": "Birtokos személyjel, T/2, többes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátaitok"
+        },
+        "<PLUR><POSS<PLUR>>": {
+            "DisplayName": "Birtokos személyjel, T/3, többes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátaik"
+        },
+        "<ANP>": {
+            "DisplayName": "Birtokjel, egyes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "baráté"
+        },
+        "<ANP<PLUR>>": {
+            "DisplayName": "Birtokjel, többes szám",
+            "SampleBaseForm": "barát",
+            "SampleInflectedForm": "barátéi"
+        },
+        "<PLUR<ANP>>": {
+            "DisplayName": "Birtokjel, többes szám",
+            "SampleBaseForm": "ő",
+            "SampleInflectedForm": "övéi"
+        },
+        "<CAS<ACC>>": {
+            "DisplayName": "Tárgyeset",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almát"
+        },
+        "<CAS<DAT>>": {
+            "DisplayName": "Részes eset",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almának"
+        },
+        "<CAS<INS>>": {
+            "DisplayName": "-val/-vel rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almával"
+        },
+        "<CAS<CAU>>": {
+            "DisplayName": "-ért rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almáért"
+        },
+        "<CAS<TRA>>": {
+            "DisplayName": "-vá/-vé rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almává"
+        },
+        "<CAS<SUE>>": {
+            "DisplayName": "-n rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almán"
+        },
+        "<CAS<SBL>>": {
+            "DisplayName": "-ra/re rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almára"
+        },
+        "<CAS<DEL>>": {
+            "DisplayName": "-ról/-ről rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almáról"
+        },
+        "<CAS<INE>>": {
+            "DisplayName": "-ban/-ben rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almában"
+        },
+        "<CAS<ELA>>": {
+            "DisplayName": "-ból/-ből rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almából"
+        },
+        "<CAS<ILL>>": {
+            "DisplayName": "-ba/-be rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almába"
+        },
+        "<CAS<ADE>>": {
+            "DisplayName": "-nál/-nél rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almánál"
+        },
+        "<CAS<ALL>>": {
+            "DisplayName": "-hoz/-hez/-höz rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almához"
+        },
+        "<CAS<ABL>>": {
+            "DisplayName": "-tól/-től rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almától"
+        },
+        "<CAS<TEM>>": {
+            "DisplayName": "-kor rag",
+            "SampleBaseForm": "hat",
+            "SampleInflectedForm": "hatkor"
+        },
+        "<CAS<TER>>": {
+            "DisplayName": "-ig rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almáig"
+        },
+        "<CAS<FOR>>": {
+            "DisplayName": "-ként rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almaként"
+        },
+        "<CAS<ESS>>": {
+            "DisplayName": "-ul rag",
+            "SampleBaseForm": "alma",
+            "SampleInflectedForm": "almául"
+        },
+        "<MODAL>": {
+            "DisplayName": "Ható igeképző",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futhat"
+        },
+        "<SUBJUNC-IMP><PERS<1>>": {
+            "DisplayName": "Felszólító mód, E/1, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussak"
+        },
+        "<SUBJUNC-IMP><PERS<2>>": {
+            "DisplayName": "Felszólító mód, E/2, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fuss"
+        },
+        "<SUBJUNC-IMP>": {
+            "DisplayName": "Felszólító mód, E/3, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fusson"
+        },
+        "<SUBJUNC-IMP><PERS<1>><PLUR>": {
+            "DisplayName": "Felszólító mód, T/1, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussunk"
+        },
+        "<SUBJUNC-IMP><PERS<2>><PLUR>": {
+            "DisplayName": "Felszólító mód, T/2, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussatok"
+        },
+        "<SUBJUNC-IMP><PLUR>": {
+            "DisplayName": "Felszólító mód, T/3, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussanak"
+        },
+        "<SUBJUNC-IMP><PERS<1>><DEF>": {
+            "DisplayName": "Felszólító mód, E/1, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussam"
+        },
+        "<SUBJUNC-IMP><PERS<1<OBJ<2>>>>": {
+            "DisplayName": "Felszólító mód, E/1, tárgyas, E/2 tárgy",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussalak"
+        },
+        "<SUBJUNC-IMP><PERS<2>><DEF>": {
+            "DisplayName": "Felszólító mód, E/2, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fusd"
+        },
+        "<SUBJUNC-IMP><DEF>": {
+            "DisplayName": "Felszólító mód, E/3, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussa"
+        },
+        "<SUBJUNC-IMP><PERS<1>><PLUR><DEF>": {
+            "DisplayName": "Felszólító mód, T/1, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussuk"
+        },
+        "<SUBJUNC-IMP><PERS<2>><PLUR><DEF>": {
+            "DisplayName": "Felszólító mód, T/2, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussátok"
+        },
+        "<SUBJUNC-IMP><PLUR><DEF>": {
+            "DisplayName": "Felszólító mód, T/3, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fussák"
+        },
+        "<COND><PERS<1>>": {
+            "DisplayName": "Feltételes mód, E/1, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnék"
+        },
+        "<COND><PERS<2>>": {
+            "DisplayName": "Feltételes mód, E/2, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnál"
+        },
+        "<COND>": {
+            "DisplayName": "Feltételes mód, E/3, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futna"
+        },
+        "<COND><PERS<1>><PLUR>": {
+            "DisplayName": "Feltételes mód, T/1, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnánk"
+        },
+        "<COND><PERS<2>><PLUR>": {
+            "DisplayName": "Feltételes mód, T/2, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnátok"
+        },
+        "<COND><PLUR>": {
+            "DisplayName": "Feltételes mód, T/3, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnának"
+        },
+        "<COND><PERS<1>><DEF>": {
+            "DisplayName": "Feltételes mód, E/1, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnám"
+        },
+        "<COND><PERS<1<OBJ<2>>>>": {
+            "DisplayName": "Feltételes mód, E/1, tárgyas, E/2 tárgy",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnálak"
+        },
+        "<COND><PERS<2>><DEF>": {
+            "DisplayName": "Feltételes mód, E/2, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnád"
+        },
+        "<COND><DEF>": {
+            "DisplayName": "Feltételes mód, E/3, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futná"
+        },
+        "<COND><PERS<1>><PLUR><DEF>": {
+            "DisplayName": "Feltételes mód, T/1, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnánk"
+        },
+        "<COND><PERS<2>><PLUR><DEF>": {
+            "DisplayName": "Feltételes mód, T/2, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnátok"
+        },
+        "<COND><PLUR><DEF>": {
+            "DisplayName": "Feltételes mód, T/3, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnák"
+        },
+        "<COND<PAST>>": {
+            "DisplayName": "Feltételes mód, múlt idő",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "volna"
+        },
+        "<PAST><PERS<1>>": {
+            "DisplayName": "Múlt idő, E/1, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottam"
+        },
+        "<PAST><PERS<2>>": {
+            "DisplayName": "Múlt idő, E/2, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottál"
+        },
+        "<PAST>": {
+            "DisplayName": "Múlt idő, E/3, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futott"
+        },
+        "<PAST><PERS<1>><PLUR>": {
+            "DisplayName": "Múlt idő, T/1, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottunk"
+        },
+        "<PAST><PERS<2>><PLUR>": {
+            "DisplayName": "Múlt idő, T/2, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottatok"
+        },
+        "<PAST><PLUR>": {
+            "DisplayName": "Múlt idő, T/3, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottak"
+        },
+        "<PAST><PERS<1>><DEF>": {
+            "DisplayName": "Múlt idő, E/1, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottam"
+        },
+        "<PAST><PERS<1<OBJ<2>>>>": {
+            "DisplayName": "Múlt idő, E/1, tárgyas, E/2 tárgy",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottalak"
+        },
+        "<PAST><PERS<2>><DEF>": {
+            "DisplayName": "Múlt idő, E/2, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottad"
+        },
+        "<PAST><DEF>": {
+            "DisplayName": "Múlt idő, E/3, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futotta"
+        },
+        "<PAST><PERS<1>><PLUR><DEF>": {
+            "DisplayName": "Múlt idő, T/1, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottuk"
+        },
+        "<PAST><PERS<2>><PLUR><DEF>": {
+            "DisplayName": "Múlt idő, T/2, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futottátok"
+        },
+        "<PAST><PLUR><DEF>": {
+            "DisplayName": "Múlt idő, T/3, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futották"
+        },
+        "<PERS<1>>": {
+            "DisplayName": "E/1, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futok"
+        },
+        "<PERS<2>>": {
+            "DisplayName": "E/2, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futsz"
+        },
+        "<PERS>": {
+            "DisplayName": "E/3, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "fut"
+        },
+        "<PERS<1>><PLUR>": {
+            "DisplayName": "T/1, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futunk"
+        },
+        "<PERS<2>><PLUR>": {
+            "DisplayName": "T/2, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futtok"
+        },
+        "<VPLUR>": {
+            "DisplayName": "T/3, alanyi",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnak"
+        },
+        "<PERS<1>><DEF>": {
+            "DisplayName": "E/1, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futom"
+        },
+        "<PERS<1<OBJ<2>>>>": {
+            "DisplayName": "E/1, tárgyas, E/2 tárgy",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futlak"
+        },
+        "<PERS<2>><DEF>": {
+            "DisplayName": "E/2, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futod"
+        },
+        "<DEF>": {
+            "DisplayName": "E/3, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futja"
+        },
+        "<PERS<1>><PLUR><DEF>": {
+            "DisplayName": "T/1, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futjuk"
+        },
+        "<PERS<2>><PLUR><DEF>": {
+            "DisplayName": "T/2, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futjátok"
+        },
+        "<PLUR><DEF>": {
+            "DisplayName": "T/3, tárgyas",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futják"
+        },
+        "<FUT>": {
+            "DisplayName": "Jövő idő",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "lesz"
+        },
+        "<INF>": {
+            "DisplayName": "Főnévi igenév",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futni"
+        },
+        "<INF><PERS<1>>": {
+            "DisplayName": "Főnévi igenév, E/1",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnom"
+        },
+        "<INF><PERS<2>>": {
+            "DisplayName": "Főnévi igenév, E/2",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnod"
+        },
+        "<INF><PERS>": {
+            "DisplayName": "Főnévi igenév, E/3",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnia"
+        },
+        "<INF><PERS<1>><PLUR>": {
+            "DisplayName": "Főnévi igenév, T/1",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnunk"
+        },
+        "<INF><PERS<2>><PLUR>": {
+            "DisplayName": "Főnévi igenév, T/2",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futnotok"
+        },
+        "<INF><PERS><PLUR>": {
+            "DisplayName": "Főnévi igenév, T/3",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futniuk"
+        },
+        "[REG_ACT]": {
+            "DisplayName": "-kedik/-kodik igeképző",
+            "SampleBaseForm": "hülye",
+            "SampleInflectedForm": "hülyéskedik"
+        },
+        "[ABSTRACT]": {
+            "DisplayName": "-ság/-ség főnévképző",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "jóság"
+        },
+        "[MRS]": {
+            "DisplayName": "Mrs.",
+            "SampleBaseForm": "király",
+            "SampleInflectedForm": "királyné"
+        },
+        "[DIMIN]": {
+            "DisplayName": "Kicsinyítő képző",
+            "SampleBaseForm": "lány",
+            "SampleInflectedForm": "lányka"
+        },
+        "[ATTRIB]": {
+            "DisplayName": "-s melléknévképző",
+            "SampleBaseForm": "rituálé",
+            "SampleInflectedForm": "rituálés"
+        },
+        "[MET_ATTRIB]": {
+            "DisplayName": "-i melléknévképző",
+            "SampleBaseForm": "politika",
+            "SampleInflectedForm": "politikai"
+        },
+        "[MET_ATTRIB][MANNER]": {
+            "DisplayName": "-ilag képző",
+            "SampleBaseForm": "politika",
+            "SampleInflectedForm": "politikailag"
+        },
+        "[INAL_ATTRIB]": {
+            "DisplayName": "-ú melléknévképző",
+            "SampleBaseForm": "kor",
+            "SampleInflectedForm": "korú"
+        },
+        "[NEG_ATTRIB]": {
+            "DisplayName": "-atlan/-etlen melléknévképző",
+            "SampleBaseForm": "kedv",
+            "SampleInflectedForm": "kedvetlen"
+        },
+        "[TYPE1]": {
+            "DisplayName": "-szerű melléknévképző",
+            "SampleBaseForm": "új",
+            "SampleInflectedForm": "újszerű"
+        },
+        "[TYPE2]": {
+            "DisplayName": "-féle melléknévképző",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "jóféle"
+        },
+        "[TYPE3]": {
+            "DisplayName": "-nemű melléknévképző",
+            "SampleBaseForm": "bármi",
+            "SampleInflectedForm": "bárminemű"
+        },
+        "[TYPE4]": {
+            "DisplayName": "-fajta melléknévképző",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "jófajta"
+        },
+        "[TYPE_RANK]": {
+            "DisplayName": "-rangú melléknévképző",
+            "SampleBaseForm": "másod",
+            "SampleInflectedForm": "másodrangú"
+        },
+        "[NEG_ATTRIB2]": {
+            "DisplayName": "-mentes melléknévképző",
+            "SampleBaseForm": "cukor",
+            "SampleInflectedForm": "cukormentes"
+        },
+        "[LOC_INE]": {
+            "DisplayName": "-beli melléknévképző",
+            "SampleBaseForm": "stílus",
+            "SampleInflectedForm": "stílusbeli"
+        },
+        "[QUANTITY]": {
+            "DisplayName": "-nyi melléknévképző",
+            "SampleBaseForm": "ország",
+            "SampleInflectedForm": "országnyi"
+        },
+        "[ESS_FOR]": {
+            "DisplayName": "-képpen képző",
+            "SampleBaseForm": "szükség",
+            "SampleInflectedForm": "szükségképpen"
+        },
+        "[COM]": {
+            "DisplayName": "-ostul/-östül képző",
+            "SampleBaseForm": "kamat",
+            "SampleInflectedForm": "kamatostul"
+        },
+        "[PERIOD1]": {
+            "DisplayName": "-ként képző",
+            "SampleBaseForm": "óra",
+            "SampleInflectedForm": "óránként"
+        },
+        "[PERIOD2]": {
+            "DisplayName": "-ente képző",
+            "SampleBaseForm": "hét",
+            "SampleInflectedForm": "hetente"
+        },
+        "[ACT]": {
+            "DisplayName": "-z igeképző",
+            "SampleBaseForm": "tapéta",
+            "SampleInflectedForm": "tapétáz"
+        },
+        "[ACT2]": {
+            "DisplayName": "-ol igeképző",
+            "SampleBaseForm": "szomszéd",
+            "SampleInflectedForm": "szomszédol"
+        },
+        "[FREQ]": {
+            "DisplayName": "-hatnék/-hetnék képző",
+            "SampleBaseForm": "fut",
+            "SampleInflectedForm": "futhatnék"
+        },
+        "[MEDIAL]": {
+            "DisplayName": "-ódik/-ődik igeképző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "íródik"
+        },
+        "[CAUS]": {
+            "DisplayName": "-tat/-tet műveltető igeképző",
+            "SampleBaseForm": "csinál",
+            "SampleInflectedForm": "csináltat"
+        },
+        "[DESID]": {
+            "DisplayName": "-ogat/-öget igeképző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "írogat"
+        },
+        "[PART]": {
+            "DisplayName": "-va/-ve képző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "írva"
+        },
+        "[PERF_PART]": {
+            "DisplayName": "-ván/-vén képző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "írván"
+        },
+        "[IMPERF_PART]": {
+            "DisplayName": "-ó képző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "író"
+        },
+        "[FUT_PART]": {
+            "DisplayName": "-andó/-endő képző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "írandó"
+        },
+        "[NEG_PERF_PART]": {
+            "DisplayName": "-atlan/-etlen képző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "íratlan"
+        },
+        "[GERUND]": {
+            "DisplayName": "-ás/-és főnévképző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "írás"
+        },
+        "[NEG_MODAL_PART]": {
+            "DisplayName": "-hatatlan/-hetetlen képző",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "írhatatlan"
+        },
+        "[MODAL_PART]": {
+            "DisplayName": "Modal adjectival participle",
+            "SampleBaseForm": "ír",
+            "SampleInflectedForm": "írható"
+        },
+        "[COMPAR]": {
+            "DisplayName": "Középfok",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "jobb"
+        },
+        "[SUPERLAT]": {
+            "DisplayName": "Felsőfok",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "legjobb"
+        },
+        "[SUPERSUPERLAT]": {
+            "DisplayName": "Túlzófok",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "legeslegjobb"
+        },
+        "[COMPAR_DESIGN]": {
+            "DisplayName": "Középfok, kijelölő",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "jobbik"
+        },
+        "[SUPERLAT_DESIGN]": {
+            "DisplayName": "Felsőfok, kijelölő",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "legjobbik"
+        },
+        "[SUPERSUPERLAT_DESIGN]": {
+            "DisplayName": "Túlzófok, kijelölő",
+            "SampleBaseForm": "jó",
+            "SampleInflectedForm": "legeslegjobbik"
+        },
+        "[MANNER]": {
+            "DisplayName": "-an/-en képző",
+            "SampleBaseForm": "egyszerű",
+            "SampleInflectedForm": "egyszerűen"
+        },
+        "[INTRANS_RESULT]": {
+            "DisplayName": "-odik/-ödik képző",
+            "SampleBaseForm": "erő",
+            "SampleInflectedForm": "erősödik"
+        },
+        "[TRANS_RESULT]": {
+            "DisplayName": "-ít képző",
+            "SampleBaseForm": "erő",
+            "SampleInflectedForm": "erősít"
+        },
+        "[MULTIPL-ITER]": {
+            "DisplayName": "-szor/-ször képző",
+            "SampleBaseForm": "hat",
+            "SampleInflectedForm": "hatszor"
+        },
+        "[ITER_ATTRIB]": {
+            "DisplayName": "-szeri képző",
+            "SampleBaseForm": "egy",
+            "SampleInflectedForm": "egyszeri"
+        },
+        "[MULTIPL_ATTRIB]": {
+            "DisplayName": "-szeres képző",
+            "SampleBaseForm": "egy",
+            "SampleInflectedForm": "egyszeres"
+        },
+        "[MULTIPL]": {
+            "DisplayName": "-szorta/-szörte képző",
+            "SampleBaseForm": "hat",
+            "SampleInflectedForm": "hatszorta"
+        },
+        "[AGGREG]": {
+            "DisplayName": "-an/-en/-ön képző",
+            "SampleBaseForm": "kettő",
+            "SampleInflectedForm": "ketten"
+        },
+        "[FRACT]": {
+            "DisplayName": "-ad/-ed képző",
+            "SampleBaseForm": "harminc",
+            "SampleInflectedForm": "harmincad"
+        },
+        "[ORD]": {
+            "DisplayName": "-dik képző",
+            "SampleBaseForm": "három",
+            "SampleInflectedForm": "harmadik"
+        },
+        "[ORD-ITER]": {
+            "DisplayName": "-adszor/-edször képző",
+            "SampleBaseForm": "három",
+            "SampleInflectedForm": "harmadszor"
+        },
+        "[ORD-ITER-ACCOMPL]": {
+            "DisplayName": "-szorra/-szörre képző",
+            "SampleBaseForm": "három",
+            "SampleInflectedForm": "harmadszorra"
+        },
+        "[DATE]": {
+            "DisplayName": "-dika képző",
+            "SampleBaseForm": "hat",
+            "SampleInflectedForm": "hatodika"
+        },
+        "<POSTP<ALÁ>>": {
+            "DisplayName": "Névutó (alá)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezalá"
+        },
+        "<POSTP<ALATT>>": {
+            "DisplayName": "Névutó (alatt)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezalatt"
+        },
+        "<POSTP<ALÓL>>": {
+            "DisplayName": "Névutó (alól)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezalól"
+        },
+        "<POSTP<ÁLTAL>>": {
+            "DisplayName": "Névutó (által)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezáltal"
+        },
+        "<POSTP<ELÉ>>": {
+            "DisplayName": "Névutó (elé)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezelé"
+        },
+        "<POSTP<ELÉBE>>": {
+            "DisplayName": "Névutó (elébe)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezelébe"
+        },
+        "<POSTP<ELLEN>>": {
+            "DisplayName": "Névutó (ellen)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezellen"
+        },
+        "<POSTP<ELLENÉRE>>": {
+            "DisplayName": "Névutó (ellenére)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezellenére"
+        },
+        "<POSTP<ELŐL>>": {
+            "DisplayName": "Névutó (elől)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezelől"
+        },
+        "<POSTP<ELŐTT>>": {
+            "DisplayName": "Névutó (előtt)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezelőtt"
+        },
+        "<POSTP<FELETT>>": {
+            "DisplayName": "Névutó (felett)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "efelett"
+        },
+        "<POSTP<FELÉ>>": {
+            "DisplayName": "Névutó (felé)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "efelé"
+        },
+        "<POSTP<FELŐL>>": {
+            "DisplayName": "Névutó (felől)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "efelől"
+        },
+        "<POSTP<FELÜL>>": {
+            "DisplayName": "Névutó (felül)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "efelül"
+        },
+        "<POSTP<FÖLÉ>>": {
+            "DisplayName": "Névutó (fölé)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "efölé"
+        },
+        "<POSTP<FÖLIBE>>": {
+            "DisplayName": "Névutó (fölibe)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "efölibe"
+        },
+        "<POSTP<FÖLÜL>>": {
+            "DisplayName": "Névutó (fölül)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "efölül"
+        },
+        "<POSTP<HELYETT>>": {
+            "DisplayName": "Névutó (helyett)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ehelyett"
+        },
+        "<POSTP<IRÁNT>>": {
+            "DisplayName": "Névutó (iránt)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "eziránt"
+        },
+        "<POSTP<KÖRÉ>>": {
+            "DisplayName": "Névutó (köré)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "eköré"
+        },
+        "<POSTP<KÖRÖTT>>": {
+            "DisplayName": "Névutó (körött)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ekörött"
+        },
+        "<POSTP<KÖRÜL>>": {
+            "DisplayName": "Névutó (körül)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ekörül"
+        },
+        "<POSTP<KÖZBEN>>": {
+            "DisplayName": "Névutó (közben)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "eközben"
+        },
+        "<POSTP<KÖZÉ>>": {
+            "DisplayName": "Névutó (közé)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "eközé"
+        },
+        "<POSTP<KÖZIBE>>": {
+            "DisplayName": "Névutó (közibe)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "eközibe"
+        },
+        "<POSTP<KÖZÖTT>>": {
+            "DisplayName": "Névutó (között)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "eközött"
+        },
+        "<POSTP<KÖZÜL>>": {
+            "DisplayName": "Névutó (közül)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "eközül"
+        },
+        "<POSTP<LÉTÉRE>>": {
+            "DisplayName": "Névutó (létére)",
+            "SampleBaseForm": "én",
+            "SampleInflectedForm": "létemre"
+        },
+        "<POSTP<MELLETT>>": {
+            "DisplayName": "Névutó (mellett)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "emellett"
+        },
+        "<POSTP<MELLÉ>>": {
+            "DisplayName": "Névutó (mellé)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "emellé"
+        },
+        "<POSTP<MELLŐL>>": {
+            "DisplayName": "Névutó (mellől)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "emellől"
+        },
+        "<POSTP<MIATT>>": {
+            "DisplayName": "Névutó (miatt)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "emiatt"
+        },
+        "<POSTP<MÖGÉ>>": {
+            "DisplayName": "Névutó (mögé)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "emögé"
+        },
+        "<POSTP<MÖGÖTT>>": {
+            "DisplayName": "Névutó (mögött)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "emögött"
+        },
+        "<POSTP<MÖGÜL>>": {
+            "DisplayName": "Névutó (mögül)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "emögül"
+        },
+        "<POSTP<NÉLKÜL>>": {
+            "DisplayName": "Névutó (nélkül)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "enélkül"
+        },
+        "<POSTP<ÓTA>>": {
+            "DisplayName": "Névutó (óta)",
+            "SampleBaseForm": "az",
+            "SampleInflectedForm": "azóta"
+        },
+        "<POSTP<RÉSZÉRE>>": {
+            "DisplayName": "Névutó (részére)",
+            "SampleBaseForm": "ő",
+            "SampleInflectedForm": "részére"
+        },
+        "<POSTP<RÉSZÉRŐL>>": {
+            "DisplayName": "Névutó (részéről)",
+            "SampleBaseForm": "ő",
+            "SampleInflectedForm": "részéről"
+        },
+        "<POSTP<SZÁMÁRA>>": {
+            "DisplayName": "Névutó (számára)",
+            "SampleBaseForm": "ő",
+            "SampleInflectedForm": "számára"
+        },
+        "<POSTP<SZERINT>>": {
+            "DisplayName": "Névutó (szerint)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "eszerint"
+        },
+        "<POSTP<UTÁN>>": {
+            "DisplayName": "Névutó (után)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "ezután"
+        },
+        "<POSTP<VÉGBŐL>>": {
+            "DisplayName": "Névutó (végből)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "evégből"
+        },
+        "<POSTP<VÉGETT>>": {
+            "DisplayName": "Névutó (végett)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "evégett"
+        },
+        "<POSTP<VÉGRE>>": {
+            "DisplayName": "Névutó (végre)",
+            "SampleBaseForm": "ez",
+            "SampleInflectedForm": "evégre"
+        },
+        "<PREVERB<ABBA>>": {
+            "DisplayName": "Igekötő (abba)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "abbahagy"
+        },
+        "<PREVERB<AGYON>>": {
+            "DisplayName": "Igekötő (agyon)",
+            "SampleBaseForm": "ver",
+            "SampleInflectedForm": "agyonver"
+        },
+        "<PREVERB<ALUL>>": {
+            "DisplayName": "Igekötő (alul)",
+            "SampleBaseForm": "marad",
+            "SampleInflectedForm": "alulmarad"
+        },
+        "<PREVERB<ALÁ>>": {
+            "DisplayName": "Igekötő (alá)",
+            "SampleBaseForm": "becsül",
+            "SampleInflectedForm": "alábecsül"
+        },
+        "<PREVERB<ALÁBB>>": {
+            "DisplayName": "Igekötő (alább)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "alábbhagy"
+        },
+        "<PREVERB<ARRÉBB>>": {
+            "DisplayName": "Igekötő (arrébb)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "arrébbáll"
+        },
+        "<PREVERB<ÁLTAL>>": {
+            "DisplayName": "Igekötő (által)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "általmegy"
+        },
+        "<PREVERB<ÁT>>": {
+            "DisplayName": "Igekötő (át)",
+            "SampleBaseForm": "ér",
+            "SampleInflectedForm": "átér"
+        },
+        "<PREVERB<BE>>": {
+            "DisplayName": "Igekötő (be)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "bemegy"
+        },
+        "<PREVERB<BELE>>": {
+            "DisplayName": "Igekötő (bele)",
+            "SampleBaseForm": "vág",
+            "SampleInflectedForm": "belevág"
+        },
+        "<PREVERB<BELJEBB>>": {
+            "DisplayName": "Igekötő (beljebb)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "beljebbáll"
+        },
+        "<PREVERB<BENN>>": {
+            "DisplayName": "Igekötő (benn)",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "bennvan"
+        },
+        "<PREVERB<BENNE>>": {
+            "DisplayName": "Igekötő (benne)",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "bennevan"
+        },
+        "<PREVERB<BENT>>": {
+            "DisplayName": "Igekötő (bent)",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "bentvan"
+        },
+        "<PREVERB<BÉ>>": {
+            "DisplayName": "Igekötő (bé)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "bémegy"
+        },
+        "<PREVERB<BÉKÉN>>": {
+            "DisplayName": "Igekötő (békén)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "békénhagy"
+        },
+        "<PREVERB<CSERBEN>>": {
+            "DisplayName": "Igekötő (cserben)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "cserbenhagy"
+        },
+        "<PREVERB<EGYBE>>": {
+            "DisplayName": "Igekötő (egybe)",
+            "SampleBaseForm": "köt",
+            "SampleInflectedForm": "egybeköt"
+        },
+        "<PREVERB<EGYET>>": {
+            "DisplayName": "Igekötő (egyet)",
+            "SampleBaseForm": "ért",
+            "SampleInflectedForm": "egyetért"
+        },
+        "<PREVERB<EGYÜTT>>": {
+            "DisplayName": "Igekötő (együtt)",
+            "SampleBaseForm": "érez",
+            "SampleInflectedForm": "együttérez"
+        },
+        "<PREVERB<EL>>": {
+            "DisplayName": "Igekötő (el)",
+            "SampleBaseForm": "tesz",
+            "SampleInflectedForm": "eltesz"
+        },
+        "<PREVERB<ELLEN>>": {
+            "DisplayName": "Igekötő (ellen)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "ellenáll"
+        },
+        "<PREVERB<ELLENT>>": {
+            "DisplayName": "Igekötő (ellent)",
+            "SampleBaseForm": "mond",
+            "SampleInflectedForm": "ellentmond"
+        },
+        "<PREVERB<ELÉ>>": {
+            "DisplayName": "Igekötő (elé)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "eléáll"
+        },
+        "<PREVERB<ELŐ>>": {
+            "DisplayName": "Igekötő (elő)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "előáll"
+        },
+        "<PREVERB<ELŐRE>>": {
+            "DisplayName": "Igekötő (előre)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "előremegy"
+        },
+        "<PREVERB<ÉSZHEZ>>": {
+            "DisplayName": "Igekötő (észhez)",
+            "SampleBaseForm": "tér",
+            "SampleInflectedForm": "észheztér"
+        },
+        "<PREVERB<ÉSZRE>>": {
+            "DisplayName": "Igekötő (észre)",
+            "SampleBaseForm": "vesz",
+            "SampleInflectedForm": "észrevesz"
+        },
+        "<PREVERB<FEL>>": {
+            "DisplayName": "Igekötő (fel)",
+            "SampleBaseForm": "néz",
+            "SampleInflectedForm": "felnéz"
+        },
+        "<PREVERB<FELJEBB>>": {
+            "DisplayName": "Igekötő (feljebb)",
+            "SampleBaseForm": "jut",
+            "SampleInflectedForm": "feljebbjut"
+        },
+        "<PREVERB<FELÜL>>": {
+            "DisplayName": "Igekötő (felül)",
+            "SampleBaseForm": "kerekedik",
+            "SampleInflectedForm": "felülkerekedik"
+        },
+        "<PREVERB<FENN>>": {
+            "DisplayName": "Igekötő (fenn)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "fennáll"
+        },
+        "<PREVERB<FÉLBE>>": {
+            "DisplayName": "Igekötő (félbe)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "félbehagy"
+        },
+        "<PREVERB<FÉLRE>>": {
+            "DisplayName": "Igekötő (félre)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "félreáll"
+        },
+        "<PREVERB<FÖL>>": {
+            "DisplayName": "Igekötő (föl)",
+            "SampleBaseForm": "néz",
+            "SampleInflectedForm": "fölnéz"
+        },
+        "<PREVERB<FÖLDET>>": {
+            "DisplayName": "Igekötő (földet)",
+            "SampleBaseForm": "ér",
+            "SampleInflectedForm": "földetér"
+        },
+        "<PREVERB<FÖLJEBB>>": {
+            "DisplayName": "Igekötő (följebb)",
+            "SampleBaseForm": "jut",
+            "SampleInflectedForm": "följebbjut"
+        },
+        "<PREVERB<FÖLÉ>>": {
+            "DisplayName": "Igekötő (fölé)",
+            "SampleBaseForm": "hajol",
+            "SampleInflectedForm": "föléhajol"
+        },
+        "<PREVERB<FÖLÜL>>": {
+            "DisplayName": "Igekötő (fölül)",
+            "SampleBaseForm": "vizsgál",
+            "SampleInflectedForm": "fölülvizsgál"
+        },
+        "<PREVERB<FÖNN>>": {
+            "DisplayName": "Igekötő (fönn)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "fönnáll"
+        },
+        "<PREVERB<HAZA>>": {
+            "DisplayName": "Igekötő (haza)",
+            "SampleBaseForm": "hoz",
+            "SampleInflectedForm": "hazahoz"
+        },
+        "<PREVERB<HELYBEN>>": {
+            "DisplayName": "Igekötő (helyben)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "helybenhagy"
+        },
+        "<PREVERB<HELYRE>>": {
+            "DisplayName": "Igekötő (helyre)",
+            "SampleBaseForm": "tesz",
+            "SampleInflectedForm": "helyretesz"
+        },
+        "<PREVERB<HELYT>>": {
+            "DisplayName": "Igekötő (helyt)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "helytáll"
+        },
+        "<PREVERB<HOPPON>>": {
+            "DisplayName": "Igekötő (hoppon)",
+            "SampleBaseForm": "marad",
+            "SampleInflectedForm": "hopponmarad"
+        },
+        "<PREVERB<HOZZÁ>>": {
+            "DisplayName": "Igekötő (hozzá)",
+            "SampleBaseForm": "tesz",
+            "SampleInflectedForm": "hozzátesz"
+        },
+        "<PREVERB<HÁTRA>>": {
+            "DisplayName": "Igekötő (hátra)",
+            "SampleBaseForm": "néz",
+            "SampleInflectedForm": "hátranéz"
+        },
+        "<PREVERB<IDE>>": {
+            "DisplayName": "Igekötő (ide)",
+            "SampleBaseForm": "jön",
+            "SampleInflectedForm": "idejön"
+        },
+        "<PREVERB<IDÉBB>>": {
+            "DisplayName": "Igekötő (idébb)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "idébbáll"
+        },
+        "<PREVERB<ITT>>": {
+            "DisplayName": "Igekötő (itt)",
+            "SampleBaseForm": "marad",
+            "SampleInflectedForm": "ittmarad"
+        },
+        "<PREVERB<JÓL>>": {
+            "DisplayName": "Igekötő (jól)",
+            "SampleBaseForm": "eső",
+            "SampleInflectedForm": "jóleső"
+        },
+        "<PREVERB<JÓT>>": {
+            "DisplayName": "Igekötő (jót)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "jótáll"
+        },
+        "<PREVERB<JÓVÁ>>": {
+            "DisplayName": "Igekötő (jóvá)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "jóváhagy"
+        },
+        "<PREVERB<KARBAN>>": {
+            "DisplayName": "Igekötő (karban)",
+            "SampleBaseForm": "tart",
+            "SampleInflectedForm": "karbantart"
+        },
+        "<PREVERB<KERESZTÜL>>": {
+            "DisplayName": "Igekötő (néz)",
+            "SampleBaseForm": "néz",
+            "SampleInflectedForm": "keresztülnéz"
+        },
+        "<PREVERB<KETTÉ>>": {
+            "DisplayName": "Igekötő (ketté)",
+            "SampleBaseForm": "vág",
+            "SampleInflectedForm": "kettévág"
+        },
+        "<PREVERB<KI>>": {
+            "DisplayName": "Igekötő (ki)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "kimegy"
+        },
+        "<PREVERB<KIJJEBB>>": {
+            "DisplayName": "Igekötő (kijjebb)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "kijjebbáll"
+        },
+        "<PREVERB<KINN>>": {
+            "DisplayName": "Igekötő (kinn)",
+            "SampleBaseForm": "marad",
+            "SampleInflectedForm": "kinnmarad"
+        },
+        "<PREVERB<KINT>>": {
+            "DisplayName": "Igekötő (kint)",
+            "SampleBaseForm": "marad",
+            "SampleInflectedForm": "kintmarad"
+        },
+        "<PREVERB<KÉTSÉGBE>>": {
+            "DisplayName": "Igekötő (kétségbe)",
+            "SampleBaseForm": "esik",
+            "SampleInflectedForm": "kétségbeesik"
+        },
+        "<PREVERB<KÖLCSÖN>>": {
+            "DisplayName": "Igekötő (kölcsön)",
+            "SampleBaseForm": "ad",
+            "SampleInflectedForm": "kölcsönad"
+        },
+        "<PREVERB<KÖRBE>>": {
+            "DisplayName": "Igekötő (körbe)",
+            "SampleBaseForm": "ér",
+            "SampleInflectedForm": "körbeér"
+        },
+        "<PREVERB<KÖRÜL>>": {
+            "DisplayName": "Igekötő (körül)",
+            "SampleBaseForm": "néz",
+            "SampleInflectedForm": "körülnéz"
+        },
+        "<PREVERB<KÖZBE>>": {
+            "DisplayName": "Igekötő (közbe)",
+            "SampleBaseForm": "vág",
+            "SampleInflectedForm": "közbevág"
+        },
+        "<PREVERB<KÖZBEN>>": {
+            "DisplayName": "Igekötő (közben)",
+            "SampleBaseForm": "jár",
+            "SampleInflectedForm": "közbenjár"
+        },
+        "<PREVERB<KÖZRE>>": {
+            "DisplayName": "Igekötő (közre)",
+            "SampleBaseForm": "ad",
+            "SampleInflectedForm": "közread"
+        },
+        "<PREVERB<KÖZZÉ>>": {
+            "DisplayName": "Igekötő (közzé)",
+            "SampleBaseForm": "tesz",
+            "SampleInflectedForm": "közzétesz"
+        },
+        "<PREVERB<KÖZÉ>>": {
+            "DisplayName": "Igekötő (közé)",
+            "SampleBaseForm": "tesz",
+            "SampleInflectedForm": "közétesz"
+        },
+        "<PREVERB<KÜLÖN>>": {
+            "DisplayName": "Igekötő (külön)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "különáll"
+        },
+        "<PREVERB<LE>>": {
+            "DisplayName": "Igekötő (le)",
+            "SampleBaseForm": "tesz",
+            "SampleInflectedForm": "letesz"
+        },
+        "<PREVERB<LEJJEBB>>": {
+            "DisplayName": "Igekötő (lejjebb)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "lejjebbmegy"
+        },
+        "<PREVERB<LÉTRE>>": {
+            "DisplayName": "Igekötő (létre)",
+            "SampleBaseForm": "hoz",
+            "SampleInflectedForm": "létrehoz"
+        },
+        "<PREVERB<MEG>>": {
+            "DisplayName": "Igekötő (meg)",
+            "SampleBaseForm": "ment",
+            "SampleInflectedForm": "megment"
+        },
+        "<PREVERB<MELLÉ>>": {
+            "DisplayName": "Igekötő (mellé)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "melléáll"
+        },
+        "<PREVERB<MÖGÉ>>": {
+            "DisplayName": "Igekötő (mögé)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "mögéáll"
+        },
+        "<PREVERB<NAGYOT>>": {
+            "DisplayName": "Igekötő (nagyot)",
+            "SampleBaseForm": "hall",
+            "SampleInflectedForm": "nagyothall"
+        },
+        "<PREVERB<NEKI>>": {
+            "DisplayName": "Igekötő (neki)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "nekiáll"
+        },
+        "<PREVERB<NYILVÁN>>": {
+            "DisplayName": "Igekötő (nyilván)",
+            "SampleBaseForm": "tart",
+            "SampleInflectedForm": "nyilvántart"
+        },
+        "<PREVERB<NYUGTON>>": {
+            "DisplayName": "Igekötő (nyugton)",
+            "SampleBaseForm": "marad",
+            "SampleInflectedForm": "nyugtonmarad"
+        },
+        "<PREVERB<ODA>>": {
+            "DisplayName": "Igekötő (oda)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "odamegy"
+        },
+        "<PREVERB<ODÁBB>>": {
+            "DisplayName": "Igekötő (odább)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "odábbáll"
+        },
+        "<PREVERB<ODÉBB>>": {
+            "DisplayName": "Igekötő (odébb)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "odébbáll"
+        },
+        "<PREVERB<OTT>>": {
+            "DisplayName": "Igekötő (ott)",
+            "SampleBaseForm": "marad",
+            "SampleInflectedForm": "ottmarad"
+        },
+        "<PREVERB<ÓVA>>": {
+            "DisplayName": "Igekötő (óva)",
+            "SampleBaseForm": "int",
+            "SampleInflectedForm": "óvaint"
+        },
+        "<PREVERB<ÖSSZE>>": {
+            "DisplayName": "Igekötő (össze)",
+            "SampleBaseForm": "szed",
+            "SampleInflectedForm": "összeszed"
+        },
+        "<PREVERB<ÖSSZÉBB>>": {
+            "DisplayName": "Igekötő (összébb)",
+            "SampleBaseForm": "húz",
+            "SampleInflectedForm": "összébbhúz"
+        },
+        "<PREVERB<ŐRIZETLEN>>": {
+            "DisplayName": "Igekötő (őrizetlen)",
+            "SampleBaseForm": "őrizetlen",
+            "SampleInflectedForm": "őrizetlenül*"
+        },
+        "<PREVERB<POFON>>": {
+            "DisplayName": "Igekötő (pofon)",
+            "SampleBaseForm": "vág",
+            "SampleInflectedForm": "pofonvág"
+        },
+        "<PREVERB<PÓRUL>>": {
+            "DisplayName": "Igekötő (pórul)",
+            "SampleBaseForm": "jár",
+            "SampleInflectedForm": "póruljár"
+        },
+        "<PREVERB<RAJT>>": {
+            "DisplayName": "Igekötő (rajt)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "rajthagy"
+        },
+        "<PREVERB<RAJTA>>": {
+            "DisplayName": "Igekötő (rajta)",
+            "SampleBaseForm": "hagy",
+            "SampleInflectedForm": "rajtahagy"
+        },
+        "<PREVERB<RENDRE>>": {
+            "DisplayName": "Igekötő (rendbe)",
+            "SampleBaseForm": "tesz",
+            "SampleInflectedForm": "rendbetesz"
+        },
+        "<PREVERB<RÁ>>": {
+            "DisplayName": "Igekötő (rá)",
+            "SampleBaseForm": "rak",
+            "SampleInflectedForm": "rárak"
+        },
+        "<PREVERB<SZABADJÁRA>>": {
+            "DisplayName": "Igekötő (szabadjára)",
+            "SampleBaseForm": "enged",
+            "SampleInflectedForm": "szabadjáraenged"
+        },
+        "<PREVERB<SZABADLÁBRA>>": {
+            "DisplayName": "Igekötő (szabadlábra)",
+            "SampleBaseForm": "ereszt",
+            "SampleInflectedForm": "szabadlábraereszt"
+        },
+        "<PREVERB<SZEMBE>>": {
+            "DisplayName": "Igekötő (szembe)",
+            "SampleBaseForm": "jön",
+            "SampleInflectedForm": "szembejön"
+        },
+        "<PREVERB<SZEMRE>>": {
+            "DisplayName": "Igekötő (szemre)",
+            "SampleBaseForm": "vételez",
+            "SampleInflectedForm": "szemrevételez"
+        },
+        "<PREVERB<SZEMÜGYRE>>": {
+            "DisplayName": "Igekötő (szemügyre)",
+            "SampleBaseForm": "vesz",
+            "SampleInflectedForm": "szemügyrevesz"
+        },
+        "<PREVERB<SZERTE>>": {
+            "DisplayName": "Igekötő (szerte)",
+            "SampleBaseForm": "ágazó",
+            "SampleInflectedForm": "szerteágazó"
+        },
+        "<PREVERB<SZÁMBA>>": {
+            "DisplayName": "Igekötő (számba)",
+            "SampleBaseForm": "vesz",
+            "SampleInflectedForm": "számbavesz"
+        },
+        "<PREVERB<SZÉJJEL>>": {
+            "DisplayName": "Igekötő (széjjel)",
+            "SampleBaseForm": "szed",
+            "SampleInflectedForm": "széjjelszed"
+        },
+        "<PREVERB<SZÉT>>": {
+            "DisplayName": "Igekötő (szét)",
+            "SampleBaseForm": "vág",
+            "SampleInflectedForm": "szétvág"
+        },
+        "<PREVERB<SZÖRNYET>>": {
+            "DisplayName": "Igekötő (szörnyet)",
+            "SampleBaseForm": "hal",
+            "SampleInflectedForm": "szörnyethal"
+        },
+        "<PREVERB<SÍKRA>>": {
+            "DisplayName": "Igekötő (síkra)",
+            "SampleBaseForm": "száll",
+            "SampleInflectedForm": "síkraszáll"
+        },
+        "<PREVERB<TELE>>": {
+            "DisplayName": "Igekötő (tele)",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "televan"
+        },
+        "<PREVERB<TELI>>": {
+            "DisplayName": "Igekötő (teli)",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "telivan"
+        },
+        "<PREVERB<TORKIG>>": {
+            "DisplayName": "Igekötő (torkig)",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "torkigvan"
+        },
+        "<PREVERB<TOVA>>": {
+            "DisplayName": "Igekötő (tova)",
+            "SampleBaseForm": "száll",
+            "SampleInflectedForm": "tovaszáll"
+        },
+        "<PREVERB<TOVÁBB>>": {
+            "DisplayName": "Igekötő (tovább)",
+            "SampleBaseForm": "áll",
+            "SampleInflectedForm": "továbbáll"
+        },
+        "<PREVERB<TUDOMÁSUL>>": {
+            "DisplayName": "Igekötő (tudomásul)",
+            "SampleBaseForm": "vesz",
+            "SampleInflectedForm": "tudomásulvesz"
+        },
+        "<PREVERB<TUDTUL>>": {
+            "DisplayName": "Igekötő (tudtul)",
+            "SampleBaseForm": "ad",
+            "SampleInflectedForm": "tudtulad"
+        },
+        "<PREVERB<TÖNKRE>>": {
+            "DisplayName": "Igekötő (tönkre)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "tönkremegy"
+        },
+        "<PREVERB<TÚL>>": {
+            "DisplayName": "Igekötő (túl)",
+            "SampleBaseForm": "van",
+            "SampleInflectedForm": "túlvan"
+        },
+        "<PREVERB<UTOL>>": {
+            "DisplayName": "Igekötő (utol)",
+            "SampleBaseForm": "ér",
+            "SampleInflectedForm": "utolér"
+        },
+        "<PREVERB<UTÁN>>": {
+            "DisplayName": "Igekötő (után)",
+            "SampleBaseForm": "vétel",
+            "SampleInflectedForm": "utánvétel"
+        },
+        "<PREVERB<UTÁNA>>": {
+            "DisplayName": "Igekötő (utána)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "utánamegy"
+        },
+        "<PREVERB<UTÓL>>": {
+            "DisplayName": "Igekötő (utól)",
+            "SampleBaseForm": "ér",
+            "SampleInflectedForm": "utólér"
+        },
+        "<PREVERB<ÚJJÁ>>": {
+            "DisplayName": "Igekötő (újjá)",
+            "SampleBaseForm": "épít",
+            "SampleInflectedForm": "újjáépít"
+        },
+        "<PREVERB<ÚJRA>>": {
+            "DisplayName": "Igekötő (újra)",
+            "SampleBaseForm": "gondol",
+            "SampleInflectedForm": "újragondol"
+        },
+        "<PREVERB<ÚTBA>>": {
+            "DisplayName": "Igekötő (útba)",
+            "SampleBaseForm": "ejt",
+            "SampleInflectedForm": "útbaejt"
+        },
+        "<PREVERB<VISSZA>>": {
+            "DisplayName": "Igekötő (vissza)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "visszamegy"
+        },
+        "<PREVERB<VISZONT>>": {
+            "DisplayName": "Igekötő (viszont)",
+            "SampleBaseForm": "eladó",
+            "SampleInflectedForm": "viszonteladó"
+        },
+        "<PREVERB<VÉGBE>>": {
+            "DisplayName": "Igekötő (végbe)",
+            "SampleBaseForm": "megy",
+            "SampleInflectedForm": "végbemegy"
+        },
+        "<PREVERB<VÉGHEZ>>": {
+            "DisplayName": "Igekötő (véghez)",
+            "SampleBaseForm": "visz",
+            "SampleInflectedForm": "véghezvisz"
+        },
+        "<PREVERB<VÉGIG>>": {
+            "DisplayName": "Igekötő (végig)",
+            "SampleBaseForm": "gondol",
+            "SampleInflectedForm": "végiggondol"
+        },
+        "<PREVERB<VÉGRE>>": {
+            "DisplayName": "Igekötő (végre)",
+            "SampleBaseForm": "hajt",
+            "SampleInflectedForm": "végrehajt"
+        },
+        "<PREVERB<ZOKON>>": {
+            "DisplayName": "Igekötő (zokon)",
+            "SampleBaseForm": "vesz",
+            "SampleInflectedForm": "zokonvesz"
+        }
+    }
+}

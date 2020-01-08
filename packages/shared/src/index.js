@@ -1,7 +1,5 @@
-export default class MorpherService {
+export { default as setupInternationalization } from './i18n/setupInternationalization';
 
-    getTitle() {
-        return 'Morpher Client';
-    }
-
-}
+export { default as getSupportedAffixTypes } from './services/supported-affix-types/getSupportedAffixTypes';
+export { default as inflect } from './services/inflect/inflect';
+export { default as analyze } from './services/analyze/analyze';
