@@ -7,7 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
-import MorpherService from '@szgabsz91/morpher-client-shared';
+import MorpherService from '@szg/morpher-client-shared';
 
 const service = new MorpherService();
 

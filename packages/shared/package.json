@@ -1,10 +1,12 @@
 {
-  "name": "@szgabsz91/morpher-client-shared",
+  "name": "@szg/morpher-client-shared",
   "version": "1.0.0",
   "main": "./src/index.js",
   "private": true,
   "scripts": {
-    "test": "echo 'No tests yet'"
+    "test": "echo 'No tests yet'",
+    "test:watch": "echo 'No tests yet'",
+    "build": "echo 'Not supported yet'"
   },
   "devDependencies": {
     "@babel/runtime": "^7.4.5"

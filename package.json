@@ -1,16 +1,54 @@
 {
-  "name": "@szgabsz91/morpher-client",
+  "name": "@szg/morpher-client",
+  "version": "1.0.0",
+  "description": "A React and React Native client for the Morpher inflection and morphological analysis framework",
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "test": "lerna run test"
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
+    "test": "lerna run test",
+    "test:shared": "lerna exec --scope @szg/morpher-client-shared -- yarn test",
+    "test:shared:watch": "lerna exec --scope @szg/morpher-client-shared -- yarn test:watch",
+    "test:mobile": "lerna exec --scope @szg/morpher-client-mobile -- yarn test",
+    "test:mobile:watch": "lerna exec --scope @szg/morpher-client-mobile -- yarn test:watch",
+    "test:web": "lerna exec --scope @szg/morpher-client-web -- yarn test",
+    "test:web:watch": "lerna exec --scope @szg/morpher-client-web -- yarn test:watch",
+    "build": "lerna run build",
+    "build:shared": "lerna exec --scope @szg/morpher-client-shared -- yarn build",
+    "build:mobile": "lerna exec --scope @szg/morpher-client-mobile -- yarn build",
+    "build:mobile:android": "lerna exec --scope @szg/morpher-client-mobile -- yarn build:android",
+    "build:mobile:ios": "lerna exec --scope @szg/morpher-client-mobile -- yarn build:ios",
+    "build:web": "lerna exec --scope @szg/morpher-client-web -- yarn build",
+    "start:mobile:android": "lerna exec --scope @szg/morpher-client-mobile -- yarn start:android",
+    "start:mobile:ios": "lerna exec --scope @szg/morpher-client-mobile -- yarn start:ios",
+    "start:web": "lerna exec --scope @szg/morpher-client-web -- yarn start"
   },
   "devDependencies": {
-    "lerna": "^3.14.1"
+    "lerna": "3.20.2"
   },
   "engineStrict": true,
   "engines": {
-    "node": ">=12.2.0",
-    "yarn": ">=1.16.0"
-  }
+    "node": ">=12.13.1",
+    "yarn": ">=1.21.1"
+  },
+  "keywords": [
+    "morpher",
+    "inflection",
+    "morphological analysis",
+    "morpher"
+  ],
+  "bugs": {
+    "url": "https://github.com/szgabsz91/morpher-client/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szgabsz91/morpher-client"
+  },
+  "author": {
+    "name": "Gabor Szabo",
+    "email": "szgabsz91@gmail.com",
+    "url": "https://github.com/szgabsz91"
+  },
+  "license": "MIT"
 }

@@ -1,20 +1,27 @@
 {
-  "name": "@szgabsz91/morpher-client-web",
+  "name": "@szg/morpher-client-web",
   "version": "1.0.0",
+  "description": "The web version of the Morpher Client application",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "lint": "echo Not supported yet",
+    "lint:fix": "echo Not supported yet",
+    "test": "react-scripts test --watchAll=false --coverage",
+    "test:watch": "react-scripts test",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
-    "eject": "react-scripts eject"
+    "start": "react-scripts start"
   },
   "dependencies": {
-    "@szgabsz91/morpher-client-shared": "1.0.0",
-    "i18next": "^16.0.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-i18next": "^10.11.0",
-    "react-scripts": "3.0.1"
+    "@szg/morpher-client-shared": "1.0.0",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-router-dom": "5.1.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.3.2",
+    "@testing-library/user-event": "7.1.2",
+    "react-scripts": "3.3.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +37,29 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.13.1",
+    "yarn": ">=1.21.1"
+  },
+  "keywords": [
+    "morpher",
+    "inflection",
+    "morphological analysis",
+    "morpher"
+  ],
+  "bugs": {
+    "url": "https://github.com/szgabsz91/morpher-client/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szgabsz91/morpher-client"
+  },
+  "author": {
+    "name": "Gabor Szabo",
+    "email": "szgabsz91@gmail.com",
+    "url": "https://github.com/szgabsz91"
+  },
+  "license": "MIT"
 }
