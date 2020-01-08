@@ -1,5 +1,5 @@
 {
-  "name": "@szgabsz91/morpher-client-mobile",
+  "name": "@szg/morpher-client-mobile",
   "version": "1.0.0",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
@@ -9,11 +9,16 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "test": "node ./node_modules/jest/bin/jest.js",
-    "test:watch": "node ./node_modules/jest/bin/jest.js --watchAll"
+    "test:watch": "node ./node_modules/jest/bin/jest.js --watchAll",
+    "build": "echo 'Not supported yet'",
+    "build:android": "echo 'Not supported yet'",
+    "build:ios": "echo 'Not supported yet'",
+    "start:android": "echo 'Not supported yet'",
+    "start:ios": "echo 'Not supported yet'"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
-    "@szgabsz91/morpher-client-shared": "1.0.0",
+    "@szg/morpher-client-shared": "1.0.0",
     "expo": "^32.0.0",
     "i18next": "^16.0.0",
     "react": "16.5.0",
