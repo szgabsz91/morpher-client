@@ -12,16 +12,38 @@
     "start": "react-scripts start"
   },
   "dependencies": {
+    "@material-ui/core": "4.8.2",
+    "@material-ui/icons": "4.5.1",
     "@szg/morpher-client-shared": "1.0.0",
+    "clsx": "1.0.4",
+    "formik": "2.1.1",
+    "i18next": "19.0.2",
+    "i18next-browser-languagedetector": "4.0.1",
+    "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-router-dom": "5.1.2"
+    "react-i18next": "11.2.7",
+    "react-router-dom": "5.1.2",
+    "react-window": "1.8.5",
+    "yup": "0.28.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.3.2",
     "@testing-library/user-event": "7.1.2",
     "react-scripts": "3.3.0"
+  },
+  "proxy": "http://localhost:8080",
+  "jest": {
+    "clearMocks": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 93.75,
+        "functions": 98.36,
+        "lines": 98.54,
+        "statements": 98.69
+      }
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
