@@ -21,7 +21,9 @@
     "build:mobile:ios": "lerna exec --scope @szg/morpher-client-mobile -- yarn build:ios",
     "build:web": "lerna exec --scope @szg/morpher-client-web -- yarn build",
     "start:mobile:android": "lerna exec --scope @szg/morpher-client-mobile -- yarn start:android",
+    "start:mobile:android:production": "lerna exec --scope @szg/morpher-client-mobile -- yarn start:android:production",
     "start:mobile:ios": "lerna exec --scope @szg/morpher-client-mobile -- yarn start:ios",
+    "start:mobile:ios:production": "lerna exec --scope @szg/morpher-client-mobile -- yarn start:ios:production",
     "start:web": "lerna exec --scope @szg/morpher-client-web -- yarn start"
   },
   "devDependencies": {

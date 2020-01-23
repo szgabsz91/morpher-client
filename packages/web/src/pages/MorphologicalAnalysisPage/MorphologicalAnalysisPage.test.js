@@ -2,8 +2,7 @@ import React from 'react';
 import { fireEvent, render, wait, waitForDomChange } from '@testing-library/react';
 
 import MorphologicalAnalysisPage from './MorphologicalAnalysisPage';
-import { analyze } from '@szg/morpher-client-shared';
-import { analysisResponse } from '../../mock-responses';
+import { analyze, analysisResponse } from '@szg/morpher-client-shared';
 
 jest.useFakeTimers();
 jest.mock('@szg/morpher-client-shared');

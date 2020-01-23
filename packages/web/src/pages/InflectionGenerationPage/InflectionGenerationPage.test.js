@@ -2,8 +2,7 @@ import React from 'react';
 import { fireEvent, render, waitForDomChange, act, wait } from '@testing-library/react';
 
 import InflectionGenerationPage from './InflectionGenerationPage';
-import { getSupportedAffixTypes, inflect } from '@szg/morpher-client-shared';
-import { inflectionResponse } from '../../mock-responses';
+import { getSupportedAffixTypes, inflect, inflectionResponse } from '@szg/morpher-client-shared';
 
 jest.useFakeTimers();
 jest.mock('@szg/morpher-client-shared');

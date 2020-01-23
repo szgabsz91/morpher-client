@@ -4,33 +4,68 @@
   "description": "The mobile version of the Morpher Client application",
   "private": true,
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "test": "jest",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "build": "yarn build:android && yarn build:ios",
     "build:android": "mkdir -p ./build && react-native bundle --platform android --dev false --entry-file ./App.js --bundle-output ./build/android.bundle",
     "build:ios": "mkdir -p ./build && react-native bundle --platform ios --dev false --entry-file ./App.js --bundle-output ./build/ios.bundle",
     "start": "react-native start",
     "start:android": "react-native run-android",
-    "start:ios": "react-native run-ios"
+    "start:android:production": "react-native run-android --variant release",
+    "start:ios": "react-native run-ios",
+    "start:ios:production": "react-native run-ios --configuration Release"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "1.7.1",
+    "@react-native-community/masked-view": "0.1.6",
     "@szg/morpher-client-shared": "1.0.1",
+    "formik": "2.1.1",
+    "i18next": "19.0.2",
+    "i18next-react-native-language-detector": "1.0.2",
+    "native-base": "2.13.8",
+    "prop-types": "15.7.2",
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-i18next": "11.2.7",
+    "react-native": "0.61.5",
+    "react-native-gesture-handler": "1.5.3",
+    "react-native-locale-detector": "1.0.1",
+    "react-native-progress": "4.0.3",
+    "react-native-reanimated": "1.7.0",
+    "react-native-safe-area-context": "0.6.2",
+    "react-native-vector-icons": "6.6.0",
+    "react-navigation": "4.0.10",
+    "react-navigation-drawer": "2.3.3",
+    "react-navigation-stack": "2.0.15",
+    "yup": "0.28.0"
   },
   "devDependencies": {
     "@babel/core": "7.6.2",
     "@babel/runtime": "7.6.2",
     "@react-native-community/eslint-config": "0.0.5",
+    "@testing-library/react-native": "5.0.3",
     "babel-jest": "24.9.0",
     "jest": "24.9.0",
+    "jest-when": "2.7.0",
     "metro-react-native-babel-preset": "0.56.0",
     "react-test-renderer": "16.9.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "/node_modules/(?!native-base)/"
+    ],
+    "clearMocks": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "setupFiles": ["./jest.setup.js"]
   },
   "engineStrict": true,
   "engines": {

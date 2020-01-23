@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'MorpherClientMobileApp' do
-  # Pods for MorpherClientMobileApp
+target 'Morpher Client' do
+  # Pods for Morpher Client
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -28,13 +28,14 @@ target 'MorpherClientMobileApp' do
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
   pod 'ReactCommon/jscallinvoker', :path => "../node_modules/react-native/ReactCommon"
   pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'MorpherClientMobileAppTests' do
+  target 'Morpher ClientTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -42,10 +43,10 @@ target 'MorpherClientMobileApp' do
   use_native_modules!
 end
 
-target 'MorpherClientMobileApp-tvOS' do
+target 'Morpher Client-tvOS' do
   # Pods for MorpherClientMobileApp-tvOS
 
-  target 'MorpherClientMobileApp-tvOSTests' do
+  target 'Morpher Client-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

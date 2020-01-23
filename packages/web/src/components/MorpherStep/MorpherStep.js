@@ -22,6 +22,7 @@ export default function MorpherStep({ responseIndex, stepIndex, step }) {
             >
                 {t(`affixTypes:${step.affixType}.DisplayName`)}
                 {
+                    // istanbul ignore next
                     !isPos &&
                         <MorpherStepInfoPopover popoverId={`affix-type-info-${responseIndex}-${stepIndex}`}>
                             <Typography className={classes.infoContainer}>
@@ -41,6 +42,7 @@ export default function MorpherStep({ responseIndex, stepIndex, step }) {
                 data-testid="table-cell-probability"
             >
                 {
+                    // istanbul ignore next
                     'development' === process.env.NODE_ENV && !isPos &&
                         <MorpherStepInfoPopover popoverId={`probability-info-${responseIndex}-${stepIndex}`}>
                             <ul className={classes.infoContainer}>

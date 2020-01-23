@@ -73,7 +73,7 @@ export default function AffixTypeList({ affixTypes, showFilter = false, error = 
                                     autoComplete="off"
                                     label={t('filter.Label')}
                                     value={affixTypeFilterString}
-                                    onChange={e => setAffixTypeFilterString(e.target.value)}
+                                    onChange={event => setAffixTypeFilterString(event.target.value)}
                                     className={classes.affixTypeFilter}
                                 /> :
                                 t('filter.SelectedAffixTypeText')

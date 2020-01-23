@@ -16,7 +16,7 @@ export default function MorpherStepInfoPopover({ popoverId, children }) {
             <IconButton
                 aria-describedby={popoverId}
                 className={classes.helpIcon}
-                onClick={e => setAnchorElement(e.currentTarget)}
+                onClick={event => setAnchorElement(event.currentTarget)}
                 data-testid="help-icon-button"
             >
                 <HelpOutlineIcon />
@@ -26,7 +26,7 @@ export default function MorpherStepInfoPopover({ popoverId, children }) {
                 id={popoverId}
                 open={!!anchorElement}
                 anchorEl={anchorElement}
-                onClose={() => setAnchorElement(null)}
+                onClose={/* istanbul ignore next */ () => setAnchorElement(null)}
                 anchorOrigin={{
                     vertical: 'bottom',
                     horizontal: 'center'
