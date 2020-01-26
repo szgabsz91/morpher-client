@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import MorpherResponses from './MorpherResponses';
-import { inflectionResponse, analysisResponse } from '../../mock-responses';
+import { inflectionResponse, analysisResponse } from '@szg/morpher-client-shared';
 
 describe('MorpherResponses', () => {
     let props = {};

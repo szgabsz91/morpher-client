@@ -4,7 +4,10 @@
         "toggleDrawerButton": {
             "Label": "Menü kinyitása"
         },
-        "AuthorName": "Szabó Gábor"
+        "AuthorName": "Szabó Gábor",
+        "backButton": {
+            "Label": "Vissza"
+        }
     },
 
     "home": {
@@ -40,6 +43,10 @@
 
     "settings": {
         "Title": "Beállítások",
+        "ApiUrlEditorText": "Szerver oldal URL-jének megváltoztatása:",
+        "apiUrl": {
+            "Label": "Szerver URL"
+        },
         "LanguageChangeText": "Alkalmazás nyelvének megváltoztatása:",
         "languages": {
             "en": {
@@ -52,28 +59,44 @@
     },
 
     "responses": {
+        "Title": "Válaszok",
         "AffixTypes": "{{count}} toldalék",
         "AffixTypes_plural": "{{count}} toldalék",
-        "AffixTypeChainProbabiityText": "Toldaléklánc valószínűsége: {{value}}",
-        "NormalizedAffixTypeChainProbabiityText": "Normalizált toldaléklánc valószínűség: {{value}}",
+        "AffixTypeChainProbabilityText": "Toldaléklánc valószínűsége: {{value}}",
+        "NormalizedAffixTypeChainProbabilityText": "Normalizált toldaléklánc valószínűség: {{value}}",
         "table": {
             "Label": "Lépések",
             "AffixTypeHeader": "Toldaléktípus",
             "OutputHeader": "Kimenet",
             "ProbabilityHeader": "Valószínűség"
         },
+        "TransformationHeader": "Transzformáció",
         "AffixTypeProbability": "Toldaléktípus valószínűsége: {{value}}",
+        "AffixTypeProbabilityHeader": "Toldaléktípus valószínűsége",
         "OutputWordProbability": "Kimeneti szó valószínűsége: {{value}}",
-        "AggregatedProbability": "Aggregált valószínűség: {{value}}"
+        "OutputWordProbabilityHeader": "Kimeneti szó valószínűsége",
+        "AggregatedProbability": "Aggregált valószínűség: {{value}}",
+        "AggregatedProbabilityHeader": "Aggregált valószínűség"
+    },
+
+    "response": {
+        "Title": "Válasz"
     },
 
     "affixTypes": {
+        "Title": "Toldaléktípus lista választó",
+        "Label": "Toldaléktípusok:",
+        "tabs": {
+            "All": "Összes",
+            "Selected": "Kiválasztva"
+        },
         "Sample": "{{baseForm}} → {{inflectedForm}}",
         "filter": {
             "Label": "Toldaléktípus szűrő",
             "SelectedAffixTypeText": "Kiválasztott toldaléktípusok"
         },
         "EmptyMessage": "Legalább egy toldaléktípus kiválasztása kötelező.",
+        "NoAffixTypesSelected": "Nincs kiválasztva egy toldaléktípus sem",
 
         "/ADJ": {
             "DisplayName": "Melléknév",

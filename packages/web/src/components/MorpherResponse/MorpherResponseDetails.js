@@ -18,10 +18,11 @@ export default function MorpherResponseDetails({ response, responseIndex }) {
                 data-testid="details-container"
             >
                 {
+                    // istanbul ignore next
                     'development' === process.env.NODE_ENV &&
                         <ul>
-                            <li>{t('AffixTypeChainProbabiityText', { value: response.affixTypeChainProbability })}</li>
-                            <li>{t('NormalizedAffixTypeChainProbabiityText', { value: response.normalizedAffixTypeChainProbability })}</li>
+                            <li>{t('AffixTypeChainProbabilityText', { value: response.affixTypeChainProbability })}</li>
+                            <li>{t('NormalizedAffixTypeChainProbabilityText', { value: response.normalizedAffixTypeChainProbability })}</li>
                         </ul>
                 }
                 

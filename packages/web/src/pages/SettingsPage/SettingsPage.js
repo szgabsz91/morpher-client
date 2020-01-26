@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import Flag from './components/Flag/Flag';
 
-import enFlag from './assets/flags/en.png';
-import huFlag from './assets/flags/hu.png';
+import enFlag from '@szg/morpher-client-shared/assets/flags/en.png';
+import huFlag from '@szg/morpher-client-shared/assets/flags/hu.png';
 
 const flags = {
     en: enFlag,

@@ -4,7 +4,10 @@
         "toggleDrawerButton": {
             "Label": "Open drawer"
         },
-        "AuthorName": "Gabor Szabo"
+        "AuthorName": "Gabor Szabo",
+        "backButton": {
+            "Label": "Back"
+        }
     },
 
     "home": {
@@ -40,6 +43,10 @@
 
     "settings": {
         "Title": "Settings",
+        "ApiUrlEditorText": "You can change the API URL to use here:",
+        "apiUrl": {
+            "Label": "API URL"
+        },
         "LanguageChangeText": "You can change the language of the application here:",
         "languages": {
             "en": {
@@ -52,28 +59,46 @@
     },
 
     "responses": {
+        "Title": "Responses",
         "AffixTypes": "{{count}} affix type",
         "AffixTypes_plural": "{{count}} affix types",
-        "AffixTypeChainProbabiityText": "Affix type chain probabiity: {{value}}",
-        "NormalizedAffixTypeChainProbabiityText": "Normalized affix type chain probabiity: {{value}}",
+        "AffixTypeChainProbabilityText": "Affix type chain probability: {{value}}",
+        "AffixTypeChainProbabilityHeader": "Affix type chain probability",
+        "NormalizedAffixTypeChainProbabilityText": "Normalized affix type chain probability: {{value}}",
+        "NormalizedAffixTypeChainProbabilityHeader": "Normalized affix type chain probability",
         "table": {
             "Label": "Response steps",
             "AffixTypeHeader": "Affix type",
             "OutputHeader": "Output",
             "ProbabilityHeader": "Probability"
         },
+        "TransformationHeader": "Transformation",
         "AffixTypeProbability": "Affix type probability: {{value}}",
+        "AffixTypeProbabilityHeader": "Affix type probability",
         "OutputWordProbability": "Output word probability: {{value}}",
-        "AggregatedProbability": "Aggregated probability: {{value}}"
+        "OutputWordProbabilityHeader": "Output word probability",
+        "AggregatedProbability": "Aggregated probability: {{value}}",
+        "AggregatedProbabilityHeader": "Aggregated probability"
+    },
+
+    "response": {
+        "Title": "Response"
     },
 
     "affixTypes": {
+        "Title": "Affix Type List Selector",
+        "Label": "Affix types:",
+        "tabs": {
+            "All": "All",
+            "Selected": "Selected"
+        },
         "Sample": "{{baseForm}} → {{inflectedForm}}",
         "filter": {
             "Label": "Filter affix types",
             "SelectedAffixTypeText": "Selected affix types"
         },
         "EmptyMessage": "At least one affix type must be selected.",
+        "NoAffixTypesSelected": "No affix types selected yet",
 
         "/ADJ": {
             "DisplayName": "Adjective",
