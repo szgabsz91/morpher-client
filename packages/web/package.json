@@ -1,6 +1,6 @@
 {
   "name": "@szg/morpher-client-web",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "The web version of the Morpher Client application",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
   "dependencies": {
     "@material-ui/core": "4.8.2",
     "@material-ui/icons": "4.5.1",
-    "@szg/morpher-client-shared": "1.0.1",
+    "@szg/morpher-client-shared": "1.1.0",
     "clsx": "1.0.4",
     "formik": "2.1.1",
     "i18next": "19.0.2",
