@@ -1,7 +1,7 @@
 version: "3"
 services:
     morpher-api:
-        image: szgabsz91/morpher-api:1.3.0
+        image: szgabsz91/morpher-api:1.4.0
         container_name: morpher-api
         hostname: morpher-api
         ports:
