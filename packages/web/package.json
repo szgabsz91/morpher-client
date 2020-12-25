@@ -4,8 +4,8 @@
   "description": "The web version of the Morpher Client application",
   "private": true,
   "scripts": {
-    "lint": "echo Not supported yet",
-    "lint:fix": "echo Not supported yet",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
     "test": "react-scripts test --watchAll=false --coverage",
     "test:watch": "react-scripts test",
     "build": "react-scripts build",
