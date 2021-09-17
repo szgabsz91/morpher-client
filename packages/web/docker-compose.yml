@@ -1,14 +1,14 @@
 version: "3"
 services:
     morpher-api:
-        image: szgabsz91/morpher-api:1.5.0
+        image: szgabsz91/morpher-api:latest
         container_name: morpher-api
         hostname: morpher-api
         ports:
             - 8080:8080
     
     morpher-client:
-        image: szgabsz91/morpher-client:1.1.0
+        image: szgabsz91/morpher-client:latest
         container_name: morpher-client
         hostname: morpher-client
         ports:
