@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import SettingsPageTitle from './SettingsPageTitle';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('SettingsPageTitle', () => {
   let props;
@@ -12,7 +14,9 @@ describe('SettingsPageTitle', () => {
 
   test('should display the title', () => {
     const { queryByTestId } = render(
-      <SettingsPageTitle {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <SettingsPageTitle {...props} />
+      </NativeBaseProvider>
     );
 
     const title = queryByTestId('title');
@@ -27,7 +31,9 @@ describe('SettingsPageTitle', () => {
     };
 
     const { queryByTestId } = render(
-      <SettingsPageTitle {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <SettingsPageTitle {...props} />
+      </NativeBaseProvider>
     );
 
     const title = queryByTestId('title');

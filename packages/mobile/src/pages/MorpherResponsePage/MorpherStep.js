@@ -3,11 +3,11 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { ListItem, Text } from 'native-base';
+import { Box, Text } from 'native-base';
 
 import KeyValuePair from '../../components/KeyValuePair/KeyValuePair';
 
-export default function MorpherStep({ step }) {
+export default function MorpherStep({ step, style }) {
   const [t] = useTranslation('responses');
 
   const isPos = step.affixType.startsWith('/');
@@ -19,9 +19,10 @@ export default function MorpherStep({ step }) {
     });
 
   return (
-    <>
-      <ListItem
-        itemDivider
+    <Box style={style}>
+      <Box
+        p="2"
+        mb="4"
         style={styles.header}
       >
         <Text
@@ -30,47 +31,24 @@ export default function MorpherStep({ step }) {
         >
           {t(`affixTypes:${step.affixType}.DisplayName`)}
         </Text>
-      </ListItem>
+      </Box>
 
-      <ListItem>
+      <Box mb="2">
         <KeyValuePair
           header={t('TransformationHeader')}
           isHeaderBold
           subheader={transformation}
         />
-      </ListItem>
+      </Box>
 
-      <ListItem>
+      <Box mb="2">
         <KeyValuePair
           header={t('AggregatedProbabilityHeader')}
           isHeaderBold
           subheader={step.aggregatedProbability}
         />
-      </ListItem>
-
-      {
-        // istanbul ignore next
-        process.env.NODE_ENV === 'development' && !isPos && (
-          <>
-            <ListItem>
-              <KeyValuePair
-                header={t('AffixTypeProbabilityHeader')}
-                isHeaderBold
-                subheader={step.affixTypeProbability}
-              />
-            </ListItem>
-
-            <ListItem>
-              <KeyValuePair
-                header={t('OutputWordProbabilityHeader')}
-                isHeaderBold
-                subheader={step.outputWordProbability}
-              />
-            </ListItem>
-          </>
-        )
-      }
-    </>
+      </Box>
+    </Box>
   );
 }
 
@@ -82,7 +60,8 @@ MorpherStep.propTypes = {
     affixTypeProbability: PropTypes.number,
     outputWordProbability: PropTypes.number,
     aggregatedProbability: PropTypes.number.isRequired
-  }).isRequired
+  }).isRequired,
+  style: PropTypes.object
 };
 
 const styles = StyleSheet.create({

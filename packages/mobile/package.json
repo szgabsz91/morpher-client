@@ -3,60 +3,67 @@
   "version": "1.1.1",
   "description": "The mobile version of the Morpher Client application",
   "private": true,
+  "main": "./src/index.js",
   "scripts": {
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "build": "yarn build:android && yarn build:ios",
-    "build:android": "mkdir -p ./build && react-native bundle --platform android --dev false --entry-file ./App.js --bundle-output ./build/android.bundle",
-    "build:ios": "mkdir -p ./build && react-native bundle --platform ios --dev false --entry-file ./App.js --bundle-output ./build/ios.bundle",
-    "start": "react-native start",
-    "start:android": "react-native run-android",
-    "start:android:production": "react-native run-android --variant release",
-    "start:ios": "react-native run-ios",
-    "start:ios:production": "react-native run-ios --configuration Release"
+    "build:android": "mkdir -p ./build && react-native bundle --platform android --dev false --entry-file ./src/App.js --bundle-output ./build/android.bundle",
+    "build:ios": "mkdir -p ./build && react-native bundle --platform ios --dev false --entry-file ./src/App.js --bundle-output ./build/ios.bundle",
+    "start": "expo start",
+    "start:android": "expo start --android",
+    "start:android:production": "expo start --android --variant release",
+    "start:ios": "expo start --ios",
+    "start:ios:production": "expo start --ios --configuration Release"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "1.7.1",
-    "@react-native-community/masked-view": "0.1.6",
-    "@szg/morpher-client-shared": "1.1.1",
-    "formik": "2.1.1",
-    "i18next": "19.0.2",
+    "@react-native-async-storage/async-storage": "1.15.0",
+    "@react-navigation/drawer": "6.3.3",
+    "@react-navigation/native": "6.0.8",
+    "@react-navigation/native-stack": "6.5.2",
+    "@szg/morpher-client-shared": "2.0.0",
+    "expo": "44.0.6",
+    "expo-status-bar": "1.2.0",
+    "formik": "2.2.9",
+    "i18next": "21.6.14",
     "i18next-react-native-language-detector": "1.0.2",
-    "native-base": "2.13.8",
-    "prop-types": "15.7.2",
-    "react": "16.9.0",
-    "react-i18next": "11.2.7",
-    "react-native": "0.61.5",
-    "react-native-gesture-handler": "1.5.3",
+    "native-base": "3.3.7",
+    "react": "17.0.2",
+    "react-i18next": "11.16.2",
+    "react-native": "0.64.3",
+    "react-native-gesture-handler": "2.1.0",
     "react-native-locale-detector": "1.0.1",
-    "react-native-progress": "4.0.3",
-    "react-native-reanimated": "1.7.0",
-    "react-native-safe-area-context": "0.6.2",
-    "react-native-vector-icons": "6.6.0",
-    "react-navigation": "4.0.10",
-    "react-navigation-drawer": "2.3.3",
-    "react-navigation-stack": "2.0.15",
-    "yup": "0.28.0"
+    "react-native-pager-view": "5.4.25",
+    "react-native-progress": "5.0.0",
+    "react-native-reanimated": "2.3.1",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "3.10.1",
+    "react-native-svg": "12.1.1",
+    "react-native-tab-view": "3.1.1",
+    "yup": "0.32.11"
   },
   "devDependencies": {
-    "@babel/core": "7.6.2",
-    "@babel/runtime": "7.6.2",
-    "@react-native-community/eslint-config": "0.0.5",
-    "@testing-library/react-native": "5.0.3",
-    "babel-jest": "24.9.0",
-    "jest": "24.9.0",
-    "jest-when": "2.7.0",
-    "metro-react-native-babel-preset": "0.56.0",
-    "react-test-renderer": "16.9.0"
+    "@babel/core": "7.17.8",
+    "@babel/runtime": "7.17.8",
+    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react-native": "4.0.0",
+    "react-test-renderer": "17.0.2",
+    "@testing-library/react-native": "10.1.1"
+  },
+  "resolutions": {
+    "react-native/@jest/create-cache-key-function": "27.0.2"
   },
   "jest": {
     "preset": "react-native",
-    "transformIgnorePatterns": [
-      "/node_modules/(?!native-base)/"
-    ],
     "clearMocks": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native-reanimated|@react-native|react-native/Libraries|react-native/index|react-native/node|react-native/jest|@expo|expo))"
+    ],
+    "moduleNameMapper": {
+      "\\.(ttf)$": "<rootDir>/mocks/fileMock.js"
+    },
     "coverageThreshold": {
       "global": {
         "branches": 100,
@@ -69,8 +76,8 @@
   },
   "engineStrict": true,
   "engines": {
-    "node": ">=12.13.1",
-    "yarn": ">=1.21.1"
+    "node": ">=16.14.2",
+    "yarn": ">=1.22.18"
   },
   "keywords": [
     "morpher",

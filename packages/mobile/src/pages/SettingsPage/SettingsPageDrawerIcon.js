@@ -3,11 +3,12 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { Icon } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function SettingsPageDrawerIcon({ color }) {
   return (
     <Icon
-      type="MaterialIcons"
+      as={MaterialIcons}
       name="settings"
       style={[styles.icon, { color }]}
       testID="icon"

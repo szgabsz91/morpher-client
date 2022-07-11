@@ -1,11 +1,12 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
+import { Text } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import MorpherResponse from './MorpherResponse';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 import { inflectionResponse, analysisResponse } from '@szg/morpher-client-shared';
-
-console.log('XXX', inflectionResponse);
 
 describe('MorpherResponse', () => {
   let props;
@@ -13,13 +14,16 @@ describe('MorpherResponse', () => {
   beforeEach(() => {
     props = {
       response: inflectionResponse,
+      isLastResponse: false,
       onResponseSelected: jest.fn()
     };
   });
 
   test('should display the sample', () => {
     const { queryByTestId } = render(
-      <MorpherResponse {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherResponse {...props} />
+      </NativeBaseProvider>
     );
 
     const header = queryByTestId('header');
@@ -29,7 +33,9 @@ describe('MorpherResponse', () => {
 
   test('should not display the number of affix types in case of inflection generation', () => {
     const { queryByTestId } = render(
-      <MorpherResponse {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherResponse {...props} />
+      </NativeBaseProvider>
     );
 
     const subheader = queryByTestId('subheader');
@@ -43,7 +49,9 @@ describe('MorpherResponse', () => {
     };
 
     const { queryByTestId } = render(
-      <MorpherResponse {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherResponse {...props} />
+      </NativeBaseProvider>
     );
 
     const subheader = queryByTestId('subheader');
@@ -53,27 +61,32 @@ describe('MorpherResponse', () => {
 
   test('should display a progress bar with the aggregated weight', () => {
     const { queryByTestId } = render(
-      <MorpherResponse {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherResponse {...props} />
+      </NativeBaseProvider>
     );
 
     const progressBar = queryByTestId('progress-bar');
     expect(progressBar).toBeTruthy();
-    expect(progressBar.props.style[0].width).toBeNull();
-    expect(progressBar.props.progress).toBe(props.response.aggregatedWeight);
+    expect(progressBar.props.accessibilityValue.now).toBe(100 * props.response.aggregatedWeight);
   });
 
   test('should display a forward icon', () => {
-    const { queryByTestId } = render(
-      <MorpherResponse {...props} />
+    const { UNSAFE_queryAllByType } = render(
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherResponse {...props} />
+      </NativeBaseProvider>
     );
 
-    const arrowIcon = queryByTestId('arrow-icon');
+    const arrowIcon = UNSAFE_queryAllByType(Text).find(text => text.props.children === undefined);
     expect(arrowIcon).toBeTruthy();
   });
 
   test('should invoke the onResponseSelected prop if the response row is pressed', () => {
     const { queryByTestId } = render(
-      <MorpherResponse {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherResponse {...props} />
+      </NativeBaseProvider>
     );
 
     const listItem = queryByTestId('list-item');

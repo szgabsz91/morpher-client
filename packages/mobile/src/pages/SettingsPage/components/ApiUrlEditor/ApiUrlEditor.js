@@ -3,7 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Icon, Input, Item, Label, Text } from 'native-base';
+import { FormControl, IconButton, Input, Text, WarningOutlineIcon } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function ApiUrlEditor({ currentApiUrl, onCommit }) {
   const [t] = useTranslation('settings');
@@ -22,59 +23,54 @@ export default function ApiUrlEditor({ currentApiUrl, onCommit }) {
         {t('ApiUrlEditorText')}
       </Text>
 
-      <View style={styles.inputRow}>
-        <Item
-          floatingLabel
-          last
-          error={apiUrl.length === 0}
-          style={styles.inputItem}
-        >
-          <Label testID="api-url-input-label">{t('apiUrl.Label')}</Label>
-          <Input
-            autoCapitalize="none"
-            autoCorrect={false}
-            value={apiUrl}
-            onChangeText={newApiUrl => setApiUrl(newApiUrl)}
-            testID="api-url-input"
-          />
-          {
-            apiUrl.length === 0 && (
-              <Icon
-                type="MaterialIcons"
-                name="error-outline"
-                testID="api-url-warning-icon"
-              />
-            )
-          }
-        </Item>
+      <FormControl
+        isInvalid={apiUrl.length === 0}
+        isFullWidth
+      >
+        <FormControl.Label>{t('apiUrl.Label')}</FormControl.Label>
+        <Input
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder={t('apiUrl.Label')}
+          value={apiUrl}
+          onChangeText={setApiUrl}
+          testID="api-url-input"
+        />
+        {
+          apiUrl.length === 0 && (
+            <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />} testID="api-url-input-error">
+              {t('apiUrl.ErrorMessage')}
+            </FormControl.ErrorMessage>
+          )
+        }
+      </FormControl>
 
-        <Button
-          small
-          transparent
-          disabled={apiUrl.length === 0}
+      <View style={styles.inputRow}>
+        <IconButton
+          _icon={{
+            as: MaterialIcons,
+            name: 'done',
+            color: 'green.700'
+          }}
+          borderRadius="full"
+          disabled={apiUrl.length === 0 || apiUrl === currentApiUrl}
+          style={styles.iconButton}
           onPress={() => onCommit(apiUrl)}
           testID="save-icon-button"
-        >
-          <Icon
-            type="MaterialIcons"
-            name="done"
-            testID="save-icon"
-          />
-        </Button>
+        />
 
-        <Button
-          small
-          transparent
+        <IconButton
+          _icon={{
+            as: MaterialIcons,
+            name: 'clear',
+            color: 'red.700'
+          }}
+          borderRadius="full"
           disabled={apiUrl === currentApiUrl}
+          style={styles.iconButton}
           onPress={() => setApiUrl(currentApiUrl)}
           testID="cancel-icon-button"
-        >
-          <Icon
-            type="MaterialIcons"
-            name="clear"
-            testID="cancel-icon"
-          />
-        </Button>
+        />
       </View>
     </>
   );
@@ -92,9 +88,10 @@ const styles = StyleSheet.create({
   },
   inputRow: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 10
   },
-  inputItem: {
-    flex: 1
+  iconButton: {
+    marginRight: 10
   }
 });

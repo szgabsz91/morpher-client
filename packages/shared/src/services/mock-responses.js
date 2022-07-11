@@ -1,4 +1,3 @@
-
 export const inflectionResponse = {
     mode: 'INFLECTION',
     input: 'alma',

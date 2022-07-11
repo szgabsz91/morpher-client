@@ -6,7 +6,6 @@ import { Button, Icon } from 'native-base';
 export default function MenuIconButton({ onButtonPressed }) {
   return (
     <Button
-      transparent
       onPress={onButtonPressed}
       testID="button"
     >

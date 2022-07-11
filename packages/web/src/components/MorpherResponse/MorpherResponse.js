@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import Accordion from '@material-ui/core/Accordion';
 
 import MorpherResponseHeader from './MorpherResponseHeader';
 import MorpherResponseDetails from './MorpherResponseDetails';
 
 export default function MorpherResponse({ response, responseIndex }) {
     return (
-        <ExpansionPanel data-testid="expansion-panel">
+        <Accordion data-testid="accordion">
             <MorpherResponseHeader
                 responseIndex={responseIndex}
                 response={response}
@@ -18,7 +18,7 @@ export default function MorpherResponse({ response, responseIndex }) {
                 responseIndex={responseIndex}
                 response={response}
             />
-        </ExpansionPanel>
+        </Accordion>
     );
 }
 

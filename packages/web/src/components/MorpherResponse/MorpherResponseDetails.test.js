@@ -14,13 +14,13 @@ describe('MorpherResponseDetails', () => {
         };
     });
 
-    test('should render the ExpansionPanelDetails', () => {
+    test('should render the AccordionDetails', () => {
         const { queryByTestId } = render(
             <MorpherResponseDetails {...props} />
         );
 
-        const expansionPanelDetails = queryByTestId('expansion-panel-details');
-        expect(expansionPanelDetails).toBeTruthy();
+        const accordionDetails = queryByTestId('accordion-details');
+        expect(accordionDetails).toBeTruthy();
     });
 
     test('should render the details container', () => {

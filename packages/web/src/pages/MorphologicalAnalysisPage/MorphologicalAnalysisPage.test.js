@@ -1,8 +1,8 @@
 import React from 'react';
-import { fireEvent, render, wait, waitForDomChange } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import MorphologicalAnalysisPage from './MorphologicalAnalysisPage';
-import { analyze, analysisResponse } from '@szg/morpher-client-shared';
+import { analyze, analysisResponse } from '@szg/morpher-client-shared';
 
 jest.useFakeTimers();
 jest.mock('@szg/morpher-client-shared');
@@ -61,7 +61,7 @@ describe('MorphologicalAnalysisPage', () => {
             <MorphologicalAnalysisPage />
         );
 
-        await wait(() => {
+        await waitFor(() => {
             const submitButton = getByTestId('submit-button');
             fireEvent.click(submitButton);
         });
@@ -84,23 +84,23 @@ describe('MorphologicalAnalysisPage', () => {
             <MorphologicalAnalysisPage />
         );
 
-        await wait(() => {
+        await waitFor(() => {
             const input = getByTestId('input-field').querySelector('input');
             fireEvent.change(input, { target: { value: 'almákat' } });
         });
 
-        await wait(() => {
+        await waitFor(() => {
             const submitButton = getByTestId('submit-button');
             fireEvent.click(submitButton);
         });
 
         const loadingSpinner = queryByTestId('loading-spinner');
         expect(loadingSpinner).toBeTruthy();
-        expect(container.querySelector('.MuiExpansionPanel-root')).toBeFalsy();
+        expect(container.querySelector('.MuiAccordion-root')).toBeFalsy();
 
         jest.advanceTimersByTime(1000);
-        await waitForDomChange({ container });
+        await waitFor(() => {}, { container });
 
-        expect(container.querySelector('.MuiExpansionPanel-root')).toBeTruthy();
+        expect(container.querySelector('.MuiAccordion-root')).toBeTruthy();
     });
 });

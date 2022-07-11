@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Content, List } from 'native-base';
+import { Box, FlatList } from 'native-base';
 
-import MorpherResponsesPageTitle from './MorpherResponsesPageTitle';
 import MorpherResponse from './MorpherResponse';
-import BackButton from '../../components/BackButton/BackButton';
 
-export default function MorpherResponsesPage({ navigation }) {
-  const responses = navigation.getParam('responses', []);
+export default function MorpherResponsesPage({ navigation, route }) {
+  const { responses } = route.params;
 
   const onResponseSelected = response => {
     navigation.navigate('MorpherResponse', {
@@ -17,29 +15,27 @@ export default function MorpherResponsesPage({ navigation }) {
   };
 
   return (
-    <Container>
-      <Content padder>
-        <List>
-          {
-            responses.map((response, index) => (
-              <MorpherResponse
-                key={index}
-                response={response}
-                onResponseSelected={() => onResponseSelected(response)}
-              />
-            ))
-          }
-        </List>
-      </Content>
-    </Container>
+    <Box p="4">
+      <FlatList
+        data={responses}
+        renderItem={({ item, index }) => (
+          <MorpherResponse
+            key={index}
+            response={item}
+            isLastResponse={index === responses.length - 1}
+            onResponseSelected={() => onResponseSelected(item)}
+          />
+        )}
+      />
+    </Box>
   );
 }
 
 MorpherResponsesPage.propTypes = {
-  navigation: PropTypes.object.isRequired
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      responses: PropTypes.array.isRequired
+    }).isRequired
+  }).isRequired,
 };
-
-MorpherResponsesPage.navigationOptions = ({ navigation }) => ({
-  headerTitle: () => <MorpherResponsesPageTitle />,
-  headerLeft: () => <BackButton navigation={navigation} />
-});

@@ -1,11 +1,14 @@
 import React from 'react';
 import { act, fireEvent, render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 import { useTranslation } from 'react-i18next';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import SettingsPage from './SettingsPage';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
-jest.useFakeTimers();
+jest.mock('../../../assets/flags/en.png', () => 1);
+jest.mock('../../../assets/flags/hu.png', () => 2);
 
 jest.mock('react-i18next');
 
@@ -24,7 +27,9 @@ describe('SettingsPage', () => {
 
   test('should display the API URL editor', () => {
     const { queryByTestId } = render(
-      <SettingsPage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <SettingsPage />
+      </NativeBaseProvider>
     );
 
     const apiUrlEditorText = queryByTestId('api-url-editor-text');
@@ -36,7 +41,9 @@ describe('SettingsPage', () => {
     AsyncStorage.setItem.mockReturnValue(setItemResultPromise);
 
     const { queryByTestId } = render(
-      <SettingsPage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <SettingsPage />
+      </NativeBaseProvider>
     );
 
     const apiUrlInput = queryByTestId('api-url-input');
@@ -54,7 +61,9 @@ describe('SettingsPage', () => {
 
   test('should display the language selector', () => {
     const { queryByTestId } = render(
-      <SettingsPage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <SettingsPage />
+      </NativeBaseProvider>
     );
 
     const languageChangeText = queryByTestId('language-change-text');
@@ -66,7 +75,9 @@ describe('SettingsPage', () => {
     AsyncStorage.setItem.mockReturnValue(setItemResultPromise);
 
     const { queryAllByTestId } = render(
-      <SettingsPage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <SettingsPage />
+      </NativeBaseProvider>
     );
 
     const flagButtonEn = queryAllByTestId('flag-button')[0];
@@ -74,48 +85,5 @@ describe('SettingsPage', () => {
     fireEvent.press(flagButtonEn);
 
     expect(changeLanguage).toHaveBeenCalledWith('en');
-  });
-
-  describe('navigationOptions', () => {
-    let props;
-    let navigationOptions;
-
-    beforeEach(() => {
-      props = {
-        navigation: {
-          toggleDrawer: jest.fn()
-        }
-      };
-      navigationOptions = SettingsPage.navigationOptions(props);
-    });
-
-    describe('headerTitle', () => {
-      it('should render the title of the page', () => {
-        const HeaderTitle = navigationOptions.headerTitle;
-
-        const { queryByTestId } = render(
-          <HeaderTitle />
-        );
-
-        const title = queryByTestId('title');
-        expect(title).toBeTruthy();
-      });
-    });
-
-    describe('headerLeft', () => {
-      it('should render the menu icon button', () => {
-        const HeaderLeft = navigationOptions.headerLeft;
-
-        const { queryByTestId } = render(
-          <HeaderLeft />
-        );
-
-        const button = queryByTestId('button');
-        expect(button).toBeTruthy();
-        fireEvent.press(button);
-
-        expect(props.navigation.toggleDrawer).toHaveBeenCalled();
-      });
-    });
   });
 });

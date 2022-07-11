@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import MorphologicalAnalysisPageTitle from './MorphologicalAnalysisPageTitle';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('MorphologicalAnalysisPageTitle', () => {
   let props;
@@ -12,7 +14,9 @@ describe('MorphologicalAnalysisPageTitle', () => {
 
   test('should display the title', () => {
     const { queryByTestId } = render(
-      <MorphologicalAnalysisPageTitle />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorphologicalAnalysisPageTitle />
+      </NativeBaseProvider>
     );
 
     const title = queryByTestId('title');
@@ -27,7 +31,9 @@ describe('MorphologicalAnalysisPageTitle', () => {
     };
 
     const { queryByTestId } = render(
-      <MorphologicalAnalysisPageTitle {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorphologicalAnalysisPageTitle {...props} />
+      </NativeBaseProvider>
     );
 
     const title = queryByTestId('title');

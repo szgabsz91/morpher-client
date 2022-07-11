@@ -6,10 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import { array, object, string } from 'yup';
 
-import { Button, Container, Content, Form, Icon, Input, Item, Label, Spinner, Text } from 'native-base';
-
-import MenuIconButton from '../../components/MenuIconButton/MenuIconButton';
-import InflectionGenerationPageTitle from './InflectionGenerationPageTitle';
+import { Button, FormControl, Input, ScrollView, Spinner, Text } from 'native-base';
 
 import AffixTypeListSelector from '../AffixTypeListSelectorPage/AffixTypeListSelector';
 
@@ -22,7 +19,7 @@ export default function InflectionGenerationPage({ navigation }) {
   const [apiUrl] = useApiUrl();
 
   const inflectWord = ({ input, affixTypes }, { setSubmitting }) => {
-    inflect(input, affixTypes, apiUrl)
+    inflect(input.toString(), affixTypes, apiUrl)
       .then(inflectionResponses =>
         navigation.navigate('MorpherResponses', {
           responses: inflectionResponses
@@ -32,98 +29,79 @@ export default function InflectionGenerationPage({ navigation }) {
   };
 
   return (
-    <Container>
-      <Content padder>
-        <Formik
-          initialValues={{ input: '', affixTypes: [] }}
-          validationSchema={object({
-            input: string().required(),
-            affixTypes: array()
-              .of(string())
-              .min(1)
-          })}
-          onSubmit={inflectWord}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            setFieldTouched,
-            isSubmitting
-          }) => (
-            <Form>
-              <Item
-                floatingLabel
-                error={touched.input && !!errors.input}
-              >
-                <Label testID="lemma-label">{t('input.Label')}</Label>
-                <Input
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  value={values.input}
-                  onChangeText={event => handleChange('input')(event)}
-                  onBlur={/* istanbul ignore next */ event => handleBlur('input')(event)}
-                  testID="lemma-input"
-                />
-                {
-                  touched.input && !!errors.input && (
-                    <Icon
-                      type="MaterialIcons"
-                      name="error-outline"
-                      testID="lemma-warning-icon"
-                    />
-                  )
-                }
-              </Item>
-
-              <AffixTypeListSelector
-                name="affixTypes"
-                value={values.affixTypes}
-                error={touched.affixTypes && !!errors.affixTypes}
-                handleChange={handleChange}
-                setFieldTouched={setFieldTouched}
-                navigation={navigation}
-                style={styles.affixTypeListSelector}
+    <ScrollView p="4">
+      <Formik
+        initialValues={{ input: '', affixTypes: [] }}
+        validationSchema={object({
+          input: string().required(),
+          affixTypes: array()
+            .of(string())
+            .min(1)
+        })}
+        onSubmit={inflectWord}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          setFieldTouched,
+          isSubmitting
+        }) => (
+          <>
+            <FormControl isFullWidth>
+              <Input
+                autoCapitalize="none"
+                autoCorrect={false}
+                variant="rounded"
+                placeholder={t('input.Label')}
+                value={values.input}
+                onChangeText={handleChange('input')}
+                onBlur={handleBlur('input')}
+                testID="lemma-input"
               />
+            </FormControl>
 
-              <Button
-                full
-                rounded
-                disabled={isSubmitting}
-                onPress={handleSubmit}
-                style={styles.submitButton}
-                testID="submit-button"
-              >
-                <Text testID="submit-button-text">{t('button.Label')}</Text>
-              </Button>
+            <AffixTypeListSelector
+              name="affixTypes"
+              value={values.affixTypes}
+              error={touched.affixTypes && !!errors.affixTypes}
+              handleChange={handleChange}
+              setFieldTouched={setFieldTouched}
+              navigation={navigation}
+              style={styles.affixTypeListSelector}
+            />
 
-              {
-                isSubmitting && (
-                  <Spinner
-                    color="green"
-                    testID="loading-spinner"
-                  />
-                )
-              }
-            </Form>
-          )}
-        </Formik>
-      </Content>
-    </Container>
+            <Button
+              disabled={isSubmitting || !!errors.input || values.input.length === 0 || !!errors.affixTypes || values.affixTypes.length === 0}
+              onPress={handleSubmit}
+              style={styles.submitButton}
+              testID="submit-button"
+            >
+              <Text testID="submit-button-text">{t('button.Label')}</Text>
+            </Button>
+
+            {
+              isSubmitting && (
+                <Spinner
+                  size="lg"
+                  style={styles.spinner}
+                  testID="loading-spinner"
+                />
+              )
+            }
+          </>
+        )}
+      </Formik>
+    </ScrollView>
   );
 }
 
 InflectionGenerationPage.propTypes = {
   navigation: PropTypes.object.isRequired
 };
-
-InflectionGenerationPage.navigationOptions = props => ({
-  headerTitle: () => <InflectionGenerationPageTitle />,
-  headerLeft: () => <MenuIconButton onButtonPressed={props.navigation.toggleDrawer} />
-});
 
 const styles = StyleSheet.create({
   affixTypeListSelector: {
@@ -132,5 +110,8 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     marginTop: 20
+  },
+  spinner: {
+    marginTop: 50
   }
 });

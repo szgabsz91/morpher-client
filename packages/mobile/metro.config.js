@@ -1,11 +1,11 @@
 const path = require('path');
 
 const extraNodeModules = {
-  '@szg/morpher-client-shared': path.resolve(__dirname + '/../shared/'),
+  '@szg/morpher-client-shared': path.resolve(__dirname, '..', 'shared'),
 };
 
 const watchFolders = [
-  path.resolve(__dirname + '/../shared/')
+  path.resolve(__dirname, '..', 'shared')
 ];
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
     }),
   },
   resolver: {
-    extraNodeModules,
+    extraNodeModules
   },
   watchFolders
 };

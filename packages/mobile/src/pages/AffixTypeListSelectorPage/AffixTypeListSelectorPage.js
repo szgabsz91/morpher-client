@@ -2,24 +2,73 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Container, Content, Segment, Text } from 'native-base';
+import { Dimensions, StatusBar } from 'react-native';
+import { TabView, SceneMap } from 'react-native-tab-view';
 
-import AffixTypeListSelectorPageTitle from './AffixTypeListSelectorPageTitle';
 import AffixTypeListSelectorPageHeaderRightIcon from './AffixTypeListSelectorPageHeaderRightIcon';
 import AffixTypeList from './AffixTypeList';
-import BackButton from '../../components/BackButton/BackButton';
 
 import useApiUrl from '../../hooks/useApiUrl';
 
 import { getSupportedAffixTypes } from '@szg/morpher-client-shared';
 
-export default function AffixTypeListSelectorPage({ navigation }) {
+const initialLayout = {
+  width: Dimensions.get('window').width
+};
+
+export const AllAffixTypes = ({ route }) => (
+  <AffixTypeList
+    affixTypes={route.affixTypes}
+    selectedAffixTypes={route.selectedAffixTypes}
+    onSelectedAffixTypesChanged={route.onSelectedAffixTypesChanged}
+    testID="all-affix-types"
+  />
+);
+
+AllAffixTypes.propTypes = {
+  route: PropTypes.shape({
+    affixTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedAffixTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onSelectedAffixTypesChanged: PropTypes.func.isRequired
+  }).isRequired
+};
+
+export const SelectedAffixTypes = ({ route }) => {
+  const [t] = useTranslation('affixTypes');
+
+  return (
+    <AffixTypeList
+      affixTypes={route.affixTypes.filter(affixType => route.selectedAffixTypes.includes(affixType))}
+      emptyMessage={t('NoAffixTypesSelected')}
+      selectedAffixTypes={route.selectedAffixTypes}
+      onSelectedAffixTypesChanged={route.onSelectedAffixTypesChanged}
+      testID="selected-affix-types"
+    />
+  );
+};
+
+SelectedAffixTypes.propTypes = {
+  route: PropTypes.object.isRequired
+};
+
+const renderScene = SceneMap({
+  all: AllAffixTypes,
+  selected: SelectedAffixTypes
+});
+
+export default function AffixTypeListSelectorPage({ navigation, route }) {
   const [t] = useTranslation('affixTypes');
   const [apiUrl] = useApiUrl();
   const [isFirstTabSelected, setFirstTabSelected] = useState(true);
   const [affixTypes, setAffixTypes] = useState([]);
 
-  const selectedAffixTypes = navigation.getParam('selectedAffixTypes', []);
+  const selectedAffixTypes = route.params.selectedAffixTypes;
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <AffixTypeListSelectorPageHeaderRightIcon navigation={navigation} route={route} />
+    });
+  }, [route.params.selectedAffixTypes]);
 
   useEffect(() => {
     getSupportedAffixTypes(apiUrl)
@@ -32,60 +81,40 @@ export default function AffixTypeListSelectorPage({ navigation }) {
     });
   };
 
-  return (
-    <Container>
-      <Segment>
-        <Button
-          first
-          active={isFirstTabSelected}
-          onPress={() => setFirstTabSelected(true)}
-          testID="first-segment-button"
-        >
-          <Text testID="first-segment-button-text">{t('tabs.All')}</Text>
-        </Button>
-
-        <Button
-          last
-          active={!isFirstTabSelected}
-          onPress={() => setFirstTabSelected(false)}
-          testID="second-segment-button"
-        >
-          <Text testID="second-segment-button-text">{t('tabs.Selected')}</Text>
-        </Button>
-      </Segment>
-
-      <Content padder>
-        {
-          isFirstTabSelected ? (
-            <AffixTypeList
-              affixTypes={affixTypes}
-              selectedAffixTypes={selectedAffixTypes}
-              onSelectedAffixTypesChanged={onSelectedAffixTypesChanged}
-              testID="all-affix-types"
-            />
-          ) : (
-            <AffixTypeList
-              affixTypes={affixTypes.filter(affixType =>
-                selectedAffixTypes.includes(affixType)
-              )}
-              emptyMessage={t('NoAffixTypesSelected')}
-              selectedAffixTypes={selectedAffixTypes}
-              onSelectedAffixTypesChanged={onSelectedAffixTypesChanged}
-              testID="selected-affix-types"
-            />
-          )
-        }
-      </Content>
-    </Container>
+  return affixTypes.length > 0 && (
+    <TabView
+      navigationState={{
+        index: isFirstTabSelected ? 0 : 1,
+        routes: [{
+          key: 'all',
+          title: t('tabs.All'),
+          affixTypes,
+          selectedAffixTypes,
+          onSelectedAffixTypesChanged
+        }, {
+          key: 'selected',
+          title: t('tabs.Selected'),
+          affixTypes,
+          selectedAffixTypes,
+          onSelectedAffixTypesChanged
+        }]
+      }}
+      renderScene={renderScene}
+      style={{
+        marginTop: StatusBar.currentHeight
+      }}
+      initialLayout={initialLayout}
+      onIndexChange={index => setFirstTabSelected(index === 0)}
+      testID="tabview"
+    />
   );
 }
 
 AffixTypeListSelectorPage.propTypes = {
-  navigation: PropTypes.object.isRequired
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      selectedAffixTypes: PropTypes.arrayOf(PropTypes.string).isRequired
+    }).isRequired
+  }).isRequired
 };
-
-AffixTypeListSelectorPage.navigationOptions = ({ navigation }) => ({
-  headerTitle: () => <AffixTypeListSelectorPageTitle />,
-  headerLeft: () => <BackButton navigation={navigation} />,
-  headerRight: () => <AffixTypeListSelectorPageHeaderRightIcon navigation={navigation} />
-});

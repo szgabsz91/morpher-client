@@ -1,21 +1,11 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-import { when } from 'jest-when';
+import { NativeBaseProvider } from 'native-base';
 
 import MorpherResponsesPage from './MorpherResponsesPage';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 import { inflectionResponse, analysisResponse } from '@szg/morpher-client-shared';
-
-jest.mock('react-navigation-stack', () => {
-  const { Text } = require('native-base');
-
-  return {
-    HeaderBackButton: ({ onPress }) => {
-      onPress();
-      return <Text>HeaderBackButton</Text>;
-    }
-  };
-});
 
 describe('MorpherResponsesPage', () => {
   let props;
@@ -23,19 +13,21 @@ describe('MorpherResponsesPage', () => {
   beforeEach(() => {
     props = {
       navigation: {
-        getParam: jest.fn(),
         navigate: jest.fn()
+      },
+      route: {
+        params: {
+          responses: [inflectionResponse, analysisResponse]
+        }
       }
     };
-
-    when(props.navigation.getParam)
-      .calledWith('responses', [])
-      .mockReturnValue([inflectionResponse, analysisResponse]);
   });
 
   test('should display the list of responses', () => {
     const { queryAllByTestId } = render(
-      <MorpherResponsesPage {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherResponsesPage {...props} />
+      </NativeBaseProvider>
     );
 
     const subheaders = queryAllByTestId('subheader');
@@ -46,7 +38,9 @@ describe('MorpherResponsesPage', () => {
 
   test('should invoke onResponseSelected if a response is selected', () => {
     const { queryAllByTestId } = render(
-      <MorpherResponsesPage {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherResponsesPage {...props} />
+      </NativeBaseProvider>
     );
 
     const listItems = queryAllByTestId('list-item');
@@ -58,44 +52,6 @@ describe('MorpherResponsesPage', () => {
 
     expect(props.navigation.navigate).toBeCalledWith('MorpherResponse', {
       response: analysisResponse
-    });
-  });
-
-  describe('navigationOptions', () => {
-    let navigationOptions;
-
-    beforeEach(() => {
-      props = {
-        navigation: {
-          goBack: jest.fn()
-        }
-      };
-      navigationOptions = MorpherResponsesPage.navigationOptions(props);
-    });
-
-    describe('headerTitle', () => {
-      it('should render the title of the page', () => {
-        const HeaderTitle = navigationOptions.headerTitle;
-
-        const { queryByTestId } = render(
-          <HeaderTitle />
-        );
-
-        const title = queryByTestId('title');
-        expect(title).toBeTruthy();
-      });
-    });
-
-    describe('headerLeft', () => {
-      it('should render the back button', () => {
-        const HeaderLeft = navigationOptions.headerLeft;
-
-        render(
-          <HeaderLeft />
-        );
-
-        expect(props.navigation.goBack).toHaveBeenCalled();
-      });
     });
   });
 });

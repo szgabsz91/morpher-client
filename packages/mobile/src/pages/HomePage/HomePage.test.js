@@ -1,8 +1,10 @@
 import React from 'react';
 import { Linking } from 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import HomePage from './HomePage';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('HomePage', () => {
   beforeEach(() => {
@@ -11,7 +13,9 @@ describe('HomePage', () => {
 
   test('should display the logo', () => {
     const { queryByTestId } = render(
-      <HomePage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePage />
+      </NativeBaseProvider>
     );
 
     const logoImage = queryByTestId('logo-image');
@@ -21,7 +25,9 @@ describe('HomePage', () => {
 
   test('should display the paragraphs', () => {
     const { queryAllByTestId } = render(
-      <HomePage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePage />
+      </NativeBaseProvider>
     );
 
     const paragraphs = queryAllByTestId('paragraph').map(
@@ -33,7 +39,9 @@ describe('HomePage', () => {
 
   test('should display the Morpher button', () => {
     const { queryByTestId } = render(
-      <HomePage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePage />
+      </NativeBaseProvider>
     );
 
     const morpherButtonText = queryByTestId('morpher-button-text');
@@ -43,7 +51,9 @@ describe('HomePage', () => {
 
   test('should open the Morpher homepage if the Morpher button is pressed', () => {
     const { queryByTestId } = render(
-      <HomePage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePage />
+      </NativeBaseProvider>
     );
 
     const morpherButton = queryByTestId('morpher-button');
@@ -57,7 +67,9 @@ describe('HomePage', () => {
 
   test('should display the Morpher API button', () => {
     const { queryByTestId } = render(
-      <HomePage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePage />
+      </NativeBaseProvider>
     );
 
     const morpherApiButtonText = queryByTestId('morpher-api-button-text');
@@ -67,7 +79,9 @@ describe('HomePage', () => {
 
   test('should open the Morpher API homepage if the Morpher API button is pressed', () => {
     const { queryByTestId } = render(
-      <HomePage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePage />
+      </NativeBaseProvider>
     );
 
     const morpherApiButton = queryByTestId('morpher-api-button');
@@ -81,7 +95,9 @@ describe('HomePage', () => {
 
   test('should display the Morpher Client button', () => {
     const { queryByTestId } = render(
-      <HomePage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePage />
+      </NativeBaseProvider>
     );
 
     const morpherClientButtonText = queryByTestId('morpher-client-button-text');
@@ -91,7 +107,9 @@ describe('HomePage', () => {
 
   test('should open the Morpher Client homepage if the Morpher Client button is pressed', () => {
     const { queryByTestId } = render(
-      <HomePage />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePage />
+      </NativeBaseProvider>
     );
 
     const morpherClientButton = queryByTestId('morpher-client-button');
@@ -101,48 +119,5 @@ describe('HomePage', () => {
     expect(Linking.openURL).toBeCalledWith(
       'https://github.com/szgabsz91/morpher-client'
     );
-  });
-
-  describe('navigationOptions', () => {
-    let props;
-    let navigationOptions;
-
-    beforeEach(() => {
-      props = {
-        navigation: {
-          toggleDrawer: jest.fn()
-        }
-      };
-      navigationOptions = HomePage.navigationOptions(props);
-    });
-
-    describe('headerTitle', () => {
-      it('should render the title of the page', () => {
-        const HeaderTitle = navigationOptions.headerTitle;
-
-        const { queryByTestId } = render(
-          <HeaderTitle />
-        );
-
-        const title = queryByTestId('title');
-        expect(title).toBeTruthy();
-      });
-    });
-
-    describe('headerLeft', () => {
-      it('should render the menu icon button', () => {
-        const HeaderLeft = navigationOptions.headerLeft;
-
-        const { queryByTestId } = render(
-          <HeaderLeft />
-        );
-
-        const button = queryByTestId('button');
-        expect(button).toBeTruthy();
-        fireEvent.press(button);
-
-        expect(props.navigation.toggleDrawer).toHaveBeenCalled();
-      });
-    });
   });
 });

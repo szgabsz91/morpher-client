@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 
 import MorpherSteps from '../MorpherSteps/MorpherSteps';
 
@@ -12,7 +12,7 @@ export default function MorpherResponseDetails({ response, responseIndex }) {
     const [t] = useTranslation('responses');
 
     return (
-        <ExpansionPanelDetails data-testid="expansion-panel-details">
+        <AccordionDetails data-testid="accordion-details">
             <div
                 className={classes.detailsContainer}
                 data-testid="details-container"
@@ -33,7 +33,7 @@ export default function MorpherResponseDetails({ response, responseIndex }) {
                     steps={response.steps}
                 />
             </div>
-        </ExpansionPanelDetails>
+        </AccordionDetails>
     );
 }
 

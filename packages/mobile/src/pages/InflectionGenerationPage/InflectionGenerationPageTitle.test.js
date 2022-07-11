@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import InflectionGenerationPageTitle from './InflectionGenerationPageTitle';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('InflectionGenerationPageTitle', () => {
   let props;
@@ -12,7 +14,9 @@ describe('InflectionGenerationPageTitle', () => {
 
   test('should display the title', () => {
     const { queryByTestId } = render(
-      <InflectionGenerationPageTitle {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <InflectionGenerationPageTitle {...props} />
+      </NativeBaseProvider>
     );
 
     const title = queryByTestId('title');
@@ -27,7 +31,9 @@ describe('InflectionGenerationPageTitle', () => {
     };
 
     const { queryByTestId } = render(
-      <InflectionGenerationPageTitle {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <InflectionGenerationPageTitle {...props} />
+      </NativeBaseProvider>
     );
 
     const title = queryByTestId('title');
