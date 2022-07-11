@@ -3,11 +3,11 @@ import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Icon, Text } from 'native-base';
+import { IconButton, Text } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function AffixTypeListSelector({
   value,
-  error = false,
   name,
   handleChange,
   setFieldTouched,
@@ -18,7 +18,7 @@ export default function AffixTypeListSelector({
 
   const emptyMessageText = (
     <Text
-      style={[styles.value, error && styles.error]}
+      style={styles.value}
       testID="empty-message-text"
     >
       {t('EmptyMessage')}
@@ -58,7 +58,7 @@ export default function AffixTypeListSelector({
       testID="row-container"
     >
       <Text
-        style={[styles.label, error && styles.error]}
+        style={styles.label}
         testID="label"
       >
         {t('Label')}
@@ -72,26 +72,16 @@ export default function AffixTypeListSelector({
         }
 
         <View style={styles.buttonContainer}>
-          <Button
+          <IconButton
+            _icon={{
+              as: MaterialIcons,
+              name: 'edit',
+              color: '#0087fa'
+            }}
+            borderRadius="full"
             onPress={editAffixTypeList}
             testID="edit-button"
-          >
-            <Icon
-              type="MaterialIcons"
-              name="edit"
-            />
-          </Button>
-
-          {
-            error && (
-              <Icon
-                type="MaterialIcons"
-                name="error-outline"
-                style={[styles.error, styles.errorIcon]}
-                testID="warning-icon"
-              />
-            )
-          }
+          />
         </View>
       </View>
     </View>
@@ -100,7 +90,6 @@ export default function AffixTypeListSelector({
 
 AffixTypeListSelector.propTypes = {
   value: PropTypes.arrayOf(PropTypes.string).isRequired,
-  error: PropTypes.bool,
   name: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   setFieldTouched: PropTypes.func.isRequired,
@@ -130,11 +119,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 5
-  },
-  error: {
-    color: '#db423a'
-  },
-  errorIcon: {
-    marginLeft: 10
   }
 });

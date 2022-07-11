@@ -120,7 +120,7 @@ describe('MorpherAppBar', () => {
             initialEntries: ['/other']
         });
         const { queryByTestId } = render(
-            <Router history={history}>
+            <Router location={history.location} navigator={history}>
                 <MorpherAppBar {...props} />
             </Router>
         );

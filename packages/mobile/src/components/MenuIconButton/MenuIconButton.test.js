@@ -1,7 +1,9 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import MenuIconButton from './MenuIconButton';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('MenuIconButton', () => {
   let props;
@@ -14,17 +16,20 @@ describe('MenuIconButton', () => {
 
   test('should display the button', () => {
     const { queryByTestId } = render(
-      <MenuIconButton {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MenuIconButton {...props} />
+      </NativeBaseProvider>
     );
 
     const button = queryByTestId('button');
     expect(button).toBeTruthy();
-    expect(button.props.style.backgroundColor).toBe('transparent');
   });
 
   test('should invoke the onButtonPressed prop if the button is pressed', () => {
     const { queryByTestId } = render(
-      <MenuIconButton {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MenuIconButton {...props} />
+      </NativeBaseProvider>
     );
 
     const button = queryByTestId('button');
@@ -36,11 +41,14 @@ describe('MenuIconButton', () => {
 
   test('should display the icon', () => {
     const { queryByTestId } = render(
-      <MenuIconButton {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MenuIconButton {...props} />
+      </NativeBaseProvider>
     );
 
     const icon = queryByTestId('icon');
     expect(icon).toBeTruthy();
     expect(icon.props.type).toBe('MaterialIcons');
+    expect(icon.props.name).toBe('menu');
   });
 });

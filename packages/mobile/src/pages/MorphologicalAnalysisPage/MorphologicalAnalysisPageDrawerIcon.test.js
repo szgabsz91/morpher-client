@@ -1,7 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { Text } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import MorphologicalAnalysisPageDrawerIcon from './MorphologicalAnalysisPageDrawerIcon';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('MorphologicalAnalysisPageDrawerIcon', () => {
   let props;
@@ -13,16 +16,13 @@ describe('MorphologicalAnalysisPageDrawerIcon', () => {
   });
 
   test('should display the icon with the given color', () => {
-    const { queryByTestId } = render(
-      <MorphologicalAnalysisPageDrawerIcon {...props} />
+    const { UNSAFE_queryByType } = render(
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorphologicalAnalysisPageDrawerIcon {...props} />
+      </NativeBaseProvider>
     );
 
-    const icon = queryByTestId('icon');
+    const icon = UNSAFE_queryByType(Text);
     expect(icon).toBeTruthy();
-    expect(icon.props.type).toBe('MaterialIcons');
-
-    const styleObjectsWithColor = icon.props.style[1].filter(s => s.color);
-    const color = styleObjectsWithColor[styleObjectsWithColor.length - 1].color;
-    expect(color).toBe(props.color);
   });
 });

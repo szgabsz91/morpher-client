@@ -21,7 +21,7 @@ describe('SettingsPage', () => {
         ]);
     });
 
-    test('should display the page title', () => {
+    test('should display the page title', () => {
         const { queryByTestId } = render(
             <SettingsPage />
         );

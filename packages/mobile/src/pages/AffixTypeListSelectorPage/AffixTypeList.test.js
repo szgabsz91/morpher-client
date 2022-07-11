@@ -1,7 +1,10 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
+import { ActivityIndicator } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import AffixTypeList from './AffixTypeList';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('AffixTypeList', () => {
   let props;
@@ -16,7 +19,9 @@ describe('AffixTypeList', () => {
 
   test('should display a filter text input', () => {
     const { queryByTestId } = render(
-      <AffixTypeList {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <AffixTypeList {...props} />
+      </NativeBaseProvider>
     );
 
     const filterTextInput = queryByTestId('filter-text-input');
@@ -34,7 +39,9 @@ describe('AffixTypeList', () => {
     };
 
     const { queryByTestId, queryAllByTestId } = render(
-      <AffixTypeList {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <AffixTypeList {...props} />
+      </NativeBaseProvider>
     );
 
     const emptyMessageText = queryByTestId('empty-message-text');
@@ -50,8 +57,10 @@ describe('AffixTypeList', () => {
   });
 
   test('should display a loading spinner if no empty message is provided and the list is empty', () => {
-    const { queryByTestId, queryAllByTestId } = render(
-      <AffixTypeList {...props} />
+    const { queryByTestId, queryAllByTestId, UNSAFE_getByType } = render(
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <AffixTypeList {...props} />
+      </NativeBaseProvider>
     );
 
     const emptyMessageText = queryByTestId('empty-message-text');
@@ -61,9 +70,8 @@ describe('AffixTypeList', () => {
     expect(subheaders).toBeTruthy();
     expect(subheaders.length).toBe(0);
 
-    const loadingSpinner = queryByTestId('loading-spinner');
+    const loadingSpinner = UNSAFE_getByType(ActivityIndicator);
     expect(loadingSpinner).toBeTruthy();
-    expect(loadingSpinner.props.color).toBe('green');
   });
 
   test('should display the affix types in a list', () => {
@@ -73,7 +81,9 @@ describe('AffixTypeList', () => {
     };
 
     const { queryAllByTestId } = render(
-      <AffixTypeList {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <AffixTypeList {...props} />
+      </NativeBaseProvider>
     );
 
     const affixTypeListItems = queryAllByTestId('affix-type-list-item');
@@ -94,7 +104,9 @@ describe('AffixTypeList', () => {
     };
 
     const { queryByTestId, queryAllByTestId } = render(
-      <AffixTypeList {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <AffixTypeList {...props} />
+      </NativeBaseProvider>
     );
 
     const filterTextInput = queryByTestId('filter-text-input');
@@ -123,7 +135,9 @@ describe('AffixTypeList', () => {
     };
 
     const { queryAllByTestId } = render(
-      <AffixTypeList {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <AffixTypeList {...props} />
+      </NativeBaseProvider>
     );
 
     const affixTypeListItems = queryAllByTestId('affix-type-list-item');
@@ -145,7 +159,9 @@ describe('AffixTypeList', () => {
     };
 
     const { queryAllByTestId } = render(
-      <AffixTypeList {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <AffixTypeList {...props} />
+      </NativeBaseProvider>
     );
 
     const affixTypeCheckboxes = queryAllByTestId('affix-type-checkbox');

@@ -1,0 +1,31 @@
+{
+  "env": {
+    "es2022": true,
+    "node": true,
+    "react-native/react-native": true
+  },
+  "extends": [
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react-native/no-color-literals": "off",
+    "react-native/no-inline-styles": "error",
+    "react-native/no-raw-text": "error",
+    "react-native/no-single-element-style-arrays": "error",
+    "react-native/no-unused-styles": "error",
+    "react-native/sort-styles": "off",
+    "react-native/split-platform-components": "error"
+  }
+}

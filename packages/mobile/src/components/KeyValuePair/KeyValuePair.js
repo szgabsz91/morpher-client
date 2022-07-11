@@ -17,6 +17,7 @@ export default function KeyValuePair({
       testID="row"
     >
       <Text
+        mb="1"
         style={[styles.header, isHeaderBold && styles.headerBold]}
         testID="header"
       >
@@ -54,7 +55,6 @@ const styles = StyleSheet.create({
   },
   header: {
     alignSelf: 'flex-start',
-    marginBottom: 8
   },
   headerBold: {
     fontWeight: 'bold'

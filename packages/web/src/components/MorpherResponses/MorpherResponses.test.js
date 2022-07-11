@@ -18,8 +18,8 @@ describe('MorpherResponses', () => {
             <MorpherResponses {...props} />
         );
 
-        const expansionPanels = queryAllByTestId('expansion-panel');
-        expect(expansionPanels).toBeTruthy();
-        expect(expansionPanels.length).toBe(props.responses.length);
+        const accordions = queryAllByTestId('accordion');
+        expect(accordions).toBeTruthy();
+        expect(accordions.length).toBe(props.responses.length);
     });
 });

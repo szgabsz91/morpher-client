@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import KeyValuePair from './KeyValuePair';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('KeyValuePair', () => {
   let props;
@@ -15,7 +17,9 @@ describe('KeyValuePair', () => {
 
   test('should display the component without an extra style if none is provided', () => {
     const { queryByTestId } = render(
-      <KeyValuePair {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <KeyValuePair {...props} />
+      </NativeBaseProvider>
     );
 
     const row = queryByTestId('row');
@@ -37,7 +41,9 @@ describe('KeyValuePair', () => {
     };
 
     const { queryByTestId } = render(
-      <KeyValuePair {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <KeyValuePair {...props} />
+      </NativeBaseProvider>
     );
 
     const row = queryByTestId('row');
@@ -52,7 +58,9 @@ describe('KeyValuePair', () => {
 
   test('should display the header', () => {
     const { queryByTestId } = render(
-      <KeyValuePair {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <KeyValuePair {...props} />
+      </NativeBaseProvider>
     );
 
     const header = queryByTestId('header');
@@ -62,20 +70,21 @@ describe('KeyValuePair', () => {
 
   test('should not display the header in bold if the isHeaderBold flag is false', () => {
     const { queryByTestId } = render(
-      <KeyValuePair {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <KeyValuePair {...props} />
+      </NativeBaseProvider>
     );
 
     const header = queryByTestId('header');
     expect(header).toBeTruthy();
 
     const style = header.props.style.splice(1);
-    expect(style).toEqual([
+    expect(style).toEqual([[
       {
-        alignSelf: 'flex-start',
-        marginBottom: 8
+        alignSelf: 'flex-start'
       },
       false
-    ]);
+    ]]);
   });
 
   test('should display the header in bold if the isHeaderBold flag is true', () => {
@@ -85,27 +94,30 @@ describe('KeyValuePair', () => {
     };
 
     const { queryByTestId } = render(
-      <KeyValuePair {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <KeyValuePair {...props} />
+      </NativeBaseProvider>
     );
 
     const header = queryByTestId('header');
     expect(header).toBeTruthy();
 
     const style = header.props.style.splice(1);
-    expect(style).toEqual([
+    expect(style).toEqual([[
       {
-        alignSelf: 'flex-start',
-        marginBottom: 8
+        alignSelf: 'flex-start'
       },
       {
         fontWeight: 'bold'
       }
-    ]);
+    ]]);
   });
 
   test('should display the subheader', () => {
     const { queryByTestId } = render(
-      <KeyValuePair {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <KeyValuePair {...props} />
+      </NativeBaseProvider>
     );
 
     const subheader = queryByTestId('subheader');
@@ -115,20 +127,22 @@ describe('KeyValuePair', () => {
 
   test('should not display the subheader in italic if the isSubheaderItalic flag is false', () => {
     const { queryByTestId } = render(
-      <KeyValuePair {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <KeyValuePair {...props} />
+      </NativeBaseProvider>
     );
 
     const subheader = queryByTestId('subheader');
     expect(subheader).toBeTruthy();
 
     const style = subheader.props.style.splice(1);
-    expect(style).toEqual([
+    expect(style).toEqual([[
       {
         alignSelf: 'flex-start',
         color: '#555'
       },
       false
-    ]);
+    ]]);
   });
 
   test('should display the subheader in italic if the isSubheaderItalic flag is true', () => {
@@ -138,14 +152,16 @@ describe('KeyValuePair', () => {
     };
 
     const { queryByTestId } = render(
-      <KeyValuePair {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <KeyValuePair {...props} />
+      </NativeBaseProvider>
     );
 
     const subheader = queryByTestId('subheader');
     expect(subheader).toBeTruthy();
 
     const style = subheader.props.style.splice(1);
-    expect(style).toEqual([
+    expect(style).toEqual([[
       {
         alignSelf: 'flex-start',
         color: '#555'
@@ -153,6 +169,6 @@ describe('KeyValuePair', () => {
       {
         fontStyle: 'italic'
       }
-    ]);
+    ]]);
   });
 });

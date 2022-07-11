@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, waitForDomChange, act, wait } from '@testing-library/react';
+import { fireEvent, render, act, waitFor } from '@testing-library/react';
 
 import InflectionGenerationPage from './InflectionGenerationPage';
 import { getSupportedAffixTypes, inflect, inflectionResponse } from '@szg/morpher-client-shared';
@@ -112,12 +112,12 @@ describe('InflectionGenerationPage with affix types loading', () => {
         );
         await act(() => supportedAffixTypesPromise);
 
-        await wait(() => {
+        await waitFor(() => {
             const affixTypeListItem = container.querySelector('[data-testid="affix-type"]');
             fireEvent.click(affixTypeListItem);
         });
 
-        await wait(() => {
+        await waitFor(() => {
             const submitButton = getByTestId('submit-button');
             fireEvent.click(submitButton);
         });
@@ -135,12 +135,12 @@ describe('InflectionGenerationPage with affix types loading', () => {
         );
         await act(() => supportedAffixTypesPromise);
 
-        await wait(() => {
+        await waitFor(() => {
             const input = getByTestId('input-field').querySelector('input');
             fireEvent.change(input, { target: { value: 'almákat' } });
         });
 
-        await wait(() => {
+        await waitFor(() => {
             const submitButton = getByTestId('submit-button');
             fireEvent.click(submitButton);
         });
@@ -163,28 +163,28 @@ describe('InflectionGenerationPage with affix types loading', () => {
         );
         await act(() => supportedAffixTypesPromise);
 
-        await wait(() => {
+        await waitFor(() => {
             const input = getByTestId('input-field').querySelector('input');
             fireEvent.change(input, { target: { value: 'almákat' } });
         });
 
-        await wait(() => {
+        await waitFor(() => {
             const affixTypeListItem = container.querySelector('[data-testid="affix-type"]');
             fireEvent.click(affixTypeListItem);
         });
 
-        await wait(() => {
+        await waitFor(() => {
             const submitButton = getByTestId('submit-button');
             fireEvent.click(submitButton);
         });
 
         const loadingSpinner = queryByTestId('loading-spinner');
         expect(loadingSpinner).toBeTruthy();
-        expect(container.querySelector('.MuiExpansionPanel-root')).toBeFalsy();
+        expect(container.querySelector('.MuiAccordion-root')).toBeFalsy();
 
         jest.advanceTimersByTime(1000);
-        await waitForDomChange({ container });
+        await waitFor(() => {}, { container });
 
-        expect(container.querySelector('.MuiExpansionPanel-root')).toBeTruthy();
+        expect(container.querySelector('.MuiAccordion-root')).toBeTruthy();
     });
 });

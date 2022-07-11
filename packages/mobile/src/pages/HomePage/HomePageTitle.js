@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Text } from 'native-base';
 
-export default function HomePageHeaderTitle({ color }) {
+export default function HomePageTitle({ color }) {
   const [t] = useTranslation('home');
 
   return (
@@ -17,6 +17,6 @@ export default function HomePageHeaderTitle({ color }) {
   );
 }
 
-HomePageHeaderTitle.propTypes = {
+HomePageTitle.propTypes = {
   color: PropTypes.string
 };

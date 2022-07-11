@@ -2,86 +2,76 @@ import React from 'react';
 import { Image, Linking, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Container, Content, Text } from 'native-base';
+import { Button, ScrollView, Text } from 'native-base';
 
-import MenuIconButton from '../../components/MenuIconButton/MenuIconButton';
-import HomePageTitle from './HomePageTitle';
-
-import morpherLogo from '@szg/morpher-client-shared/assets/morpher.png';
+const morpherLogo = require('../../../assets/morpher.png');
 
 export default function HomePage() {
   const [t] = useTranslation('home');
 
   return (
-    <Container>
-      <Content padder>
-        <View style={styles.logoContainer}>
-          <Image
-            source={morpherLogo}
-            testID="logo-image"
-          />
-        </View>
+    <ScrollView p="4">
+      <View style={styles.logoContainer}>
+        <Image
+          source={morpherLogo}
+          testID="logo-image"
+        />
+      </View>
 
-        <Text
-          style={styles.paragraph}
-          testID="paragraph"
+      <Text
+        style={styles.paragraph}
+        testID="paragraph"
+      >
+        {t('Paragraph1')}
+      </Text>
+
+      <Text
+        style={styles.paragraph}
+        testID="paragraph"
+      >
+        {t('Paragraph2')}
+      </Text>
+
+      <Text
+        style={styles.paragraph}
+        testID="paragraph"
+      >
+        {t('Resources')}
+      </Text>
+
+      <View style={styles.resourceList}>
+        <Button
+          block
+          style={styles.resource}
+          onPress={() => Linking.openURL('https://github.com/szgabsz91/morpher')}
+          testID="morpher-button"
         >
-          {t('Paragraph1')}
-        </Text>
+          <Text testID="morpher-button-text">{t('application:Title')}</Text>
+        </Button>
 
-        <Text
-          style={styles.paragraph}
-          testID="paragraph"
+        <Button
+          block
+          style={styles.resource}
+          onPress={() => Linking.openURL('https://github.com/szgabsz91/morpher-api')}
+          testID="morpher-api-button"
         >
-          {t('Paragraph2')}
-        </Text>
+          <Text testID="morpher-api-button-text">{t('MorpherAPI')}</Text>
+        </Button>
 
-        <Text
-          style={styles.paragraph}
-          testID="paragraph"
+        <Button
+          block
+          style={styles.resource}
+          onPress={() => Linking.openURL('https://github.com/szgabsz91/morpher-client')}
+          testID="morpher-client-button"
         >
-          {t('Resources')}
-        </Text>
-
-        <View style={styles.resourceList}>
-          <Button
-            block
-            style={styles.resource}
-            onPress={() => Linking.openURL('https://github.com/szgabsz91/morpher')}
-            testID="morpher-button"
-          >
-            <Text testID="morpher-button-text">{t('application:Title')}</Text>
-          </Button>
-
-          <Button
-            block
-            style={styles.resource}
-            onPress={() => Linking.openURL('https://github.com/szgabsz91/morpher-api')}
-            testID="morpher-api-button"
-          >
-            <Text testID="morpher-api-button-text">{t('MorpherAPI')}</Text>
-          </Button>
-
-          <Button
-            block
-            style={styles.resource}
-            onPress={() => Linking.openURL('https://github.com/szgabsz91/morpher-client')}
-            testID="morpher-client-button"
-          >
-            <Text testID="morpher-client-button-text">{t('MorpherClient')}</Text>
-          </Button>
-        </View>
-      </Content>
-    </Container>
+          <Text testID="morpher-client-button-text">{t('MorpherClient')}</Text>
+        </Button>
+      </View>
+    </ScrollView>
   );
 }
 
 HomePage.propTypes = {};
-
-HomePage.navigationOptions = props => ({
-  headerTitle: () => <HomePageTitle />,
-  headerLeft: () => <MenuIconButton onButtonPressed={props.navigation.toggleDrawer} />
-});
 
 const styles = StyleSheet.create({
   logoContainer: {

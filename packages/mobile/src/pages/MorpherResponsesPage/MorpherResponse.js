@@ -1,50 +1,58 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { Bar as ProgressBar } from 'react-native-progress';
-
-import { Left, Icon, ListItem, Right } from 'native-base';
+import { Box, Icon, Progress } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import KeyValuePair from '../../components/KeyValuePair/KeyValuePair';
 
-export default function MorpherResponse({ response, onResponseSelected }) {
+export default function MorpherResponse({ response, isLastResponse, onResponseSelected }) {
   const [t] = useTranslation('responses');
 
   const isAnalysis = response.mode === 'ANALYSIS';
 
   return (
-    <ListItem
-      button
+    <TouchableOpacity
+      borderBottomWidth="1"
+      style={styles.listItemRow}
       onPress={onResponseSelected}
       testID="list-item"
     >
-      <Left style={styles.affixTypeContent}>
-        <KeyValuePair
-          header={t('affixTypes:Sample', {
-            baseForm: response.input,
-            inflectedForm: response.output
-          })}
-          subheader={isAnalysis && t('AffixTypes', { count: response.steps.length })}
-          isSubheaderItalic
-        />
+      <Box
+        borderBottomWidth={isLastResponse ? '0' : '1'}
+        style={styles.listItemRowWrapper}
+        borderColor="coolGray.300"
+        pb="4"
+        pt="4"
+      >
+        <Box style={styles.listItemRowContent}>
+          <KeyValuePair
+            header={t('affixTypes:Sample', {
+              baseForm: response.input,
+              inflectedForm: response.output
+            })}
+            subheader={isAnalysis && t('AffixTypes', { count: response.steps.length })}
+            isSubheaderItalic
+          />
 
-        <ProgressBar
-          progress={response.aggregatedWeight}
-          width={null}
-          style={styles.progressBar}
-          testID="progress-bar"
-        />
-      </Left>
+          <Progress
+            value={100 * response.aggregatedWeight}
+            bg="coolGray.300"
+            style={styles.progressBar}
+            testID="progress-bar"
+          />
+        </Box>
 
-      <Right>
         <Icon
-          name="arrow-forward"
-          testID="arrow-icon"
+          as={MaterialIcons}
+          name="chevron-right"
+          style={styles.chevronIcon}
+          testID="chevron-icon"
         />
-      </Right>
-    </ListItem>
+      </Box>
+    </TouchableOpacity>
   );
 }
 
@@ -71,17 +79,30 @@ MorpherResponse.propTypes = {
     normalizedAffixTypeChainProbability: PropTypes.number.isRequired,
     aggregatedWeight: PropTypes.number.isRequired
   }).isRequired,
+  isLastResponse: PropTypes.bool.isRequired,
   onResponseSelected: PropTypes.func.isRequired
 };
 
 const styles = StyleSheet.create({
-  affixTypeContent: {
+  listItemRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  listItemRowWrapper: {
     flex: 1,
-    flexDirection: 'column'
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  listItemRowContent: {
+    flex: 1,
   },
   progressBar: {
     flex: 1,
-    alignSelf: 'stretch',
-    marginTop: 10
+    marginTop: 16
+  },
+  chevronIcon: {
+    color: '#0087fa'
   }
 });

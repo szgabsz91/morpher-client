@@ -45,7 +45,8 @@
         "Title": "Settings",
         "ApiUrlEditorText": "You can change the API URL to use here:",
         "apiUrl": {
-            "Label": "API URL"
+            "Label": "API URL",
+            "ErrorMessage": "The API URL is required"
         },
         "LanguageChangeText": "You can change the language of the application here:",
         "languages": {

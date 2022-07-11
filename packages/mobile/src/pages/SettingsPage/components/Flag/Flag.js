@@ -7,7 +7,7 @@ import { Button } from 'native-base';
 export default function Flag({ flagImage, onLanguageSelected, style }) {
   return (
     <Button
-      transparent
+      variant="unstyled"
       onPress={onLanguageSelected}
       style={style}
       testID="flag-button"

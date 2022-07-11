@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import MorpherResponseHeader from './MorpherResponseHeader';
 import { inflectionResponse } from '@szg/morpher-client-shared';
@@ -14,17 +14,17 @@ describe('MorpherResponseHeader', () => {
         };
     });
 
-    test('should display the ExpansionPanelSummary with the expand icon', () => {
+    test('should display the AccordionSummary with the expand icon', () => {
         const { queryByTestId } = render(
             <MorpherResponseHeader {...props} />
         );
 
-        const expansionPanelSummary = queryByTestId('expansion-panel-summary');
-        expect(expansionPanelSummary).toBeTruthy();
-        expect(expansionPanelSummary).toHaveAttribute('aria-controls', `response-${props.responseIndex}-controls`);
-        expect(expansionPanelSummary).toHaveAttribute('id', `response-${props.responseIndex}-header`);
+        const accordionSummary = queryByTestId('accordion-summary');
+        expect(accordionSummary).toBeTruthy();
+        expect(accordionSummary).toHaveAttribute('aria-controls', `response-${props.responseIndex}-controls`);
+        expect(accordionSummary).toHaveAttribute('id', `response-${props.responseIndex}-header`);
 
-        const expandMoreIcon = expansionPanelSummary.querySelector('svg');
+        const expandMoreIcon = accordionSummary.querySelector('svg');
         expect(expandMoreIcon).toBeTruthy();
     });
 

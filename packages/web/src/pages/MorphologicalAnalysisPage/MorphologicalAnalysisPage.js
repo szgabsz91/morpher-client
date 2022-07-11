@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import { object, string } from 'yup';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TextField from '@material-ui/core/TextField';

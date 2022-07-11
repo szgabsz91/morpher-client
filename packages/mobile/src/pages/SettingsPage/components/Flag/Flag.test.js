@@ -1,7 +1,9 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import Flag from './Flag';
+import { initialWindowMetrics } from '../../../../testing/initialWindowMetrics';
 
 describe('Flag', () => {
   let props;
@@ -18,18 +20,20 @@ describe('Flag', () => {
 
   test('should display the Button', () => {
     const { queryByTestId } = render(
-      <Flag {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <Flag {...props} />
+      </NativeBaseProvider>
     );
 
     const button = queryByTestId('flag-button');
     expect(button).toBeTruthy();
-    expect(button.props.style.backgroundColor).toBe('transparent');
-    expect(button.props.style.margin).toBe(props.style.margin);
   });
 
   test('should invoke the provided callback if the IconButton is clicked', () => {
     const { getByTestId } = render(
-      <Flag {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <Flag {...props} />
+      </NativeBaseProvider>
     );
 
     const button = getByTestId('flag-button');
@@ -41,7 +45,9 @@ describe('Flag', () => {
 
   test('should display the image', () => {
     const { queryByTestId } = render(
-      <Flag {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <Flag {...props} />
+      </NativeBaseProvider>
     );
 
     const image = queryByTestId('flag-image');

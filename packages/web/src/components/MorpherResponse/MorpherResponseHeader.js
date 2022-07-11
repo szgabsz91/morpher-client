@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
-import { makeStyles } from '@material-ui/core/styles';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import { makeStyles } from '@material-ui/core/styles';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 
@@ -15,11 +15,11 @@ export default function MorpherResponseHeader({ response, responseIndex }) {
     const [t] = useTranslation('responses');
 
     return (
-        <ExpansionPanelSummary
+        <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`response-${responseIndex}-controls`}
             id={`response-${responseIndex}-header`}
-            data-testid="expansion-panel-summary"
+            data-testid="accordion-summary"
         >
             <div
                 className={classes.headerContainer}
@@ -62,7 +62,7 @@ export default function MorpherResponseHeader({ response, responseIndex }) {
                     data-testid="linear-progress"
                 />
             </div>
-        </ExpansionPanelSummary>
+        </AccordionSummary>
     );
 }
 

@@ -14,13 +14,13 @@ describe('MorpherResponse', () => {
         };
     });
 
-    test('should render the ExpansionPanel', () => {
+    test('should render the Accordion', () => {
         const { queryByTestId } = render(
             <MorpherResponse {...props} />
         );
 
-        const expansionPanel = queryByTestId('expansion-panel');
-        expect(expansionPanel).toBeTruthy();
+        const accordion = queryByTestId('accordion');
+        expect(accordion).toBeTruthy();
     });
 
     test('should render the MorpherResponseHeader', () => {
@@ -28,8 +28,8 @@ describe('MorpherResponse', () => {
             <MorpherResponse {...props} />
         );
 
-        const expansionPanelSummary = queryByTestId('expansion-panel-summary');
-        expect(expansionPanelSummary).toBeTruthy();
+        const accordionSummary = queryByTestId('accordion-summary');
+        expect(accordionSummary).toBeTruthy();
     });
 
     test('should render the MorpherResponseDetails', () => {
@@ -37,7 +37,7 @@ describe('MorpherResponse', () => {
             <MorpherResponse {...props} />
         );
 
-        const expansionPanelDetails = queryByTestId('expansion-panel-details');
-        expect(expansionPanelDetails).toBeTruthy();
+        const accordionDetails = queryByTestId('accordion-details');
+        expect(accordionDetails).toBeTruthy();
     });
 });

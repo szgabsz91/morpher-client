@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -29,29 +29,29 @@ export default function MorpherContent() {
                 className={classes.container}
                 data-testid="container"
             >
-                <Switch>
+                <Routes>
                     <Route
                         path="/"
                         exact
-                        component={HomePage}
+                        element={<HomePage />}
                         data-testid="home-page"
                     />
 
                     <Route
                         path="/inflection-generation"
-                        component={InflectionGenerationPage}
+                        element={<InflectionGenerationPage />}
                     />
                     
                     <Route
                         path="/morphological-analysis"
-                        component={MorphologicalAnalysisPage}
+                        element={<MorphologicalAnalysisPage />}
                     />
                     
                     <Route
                         path="/settings"
-                        component={SettingsPage}
+                        element={<SettingsPage />}
                     />
-                </Switch>
+                </Routes>
 
                 <Box
                     pt={4}

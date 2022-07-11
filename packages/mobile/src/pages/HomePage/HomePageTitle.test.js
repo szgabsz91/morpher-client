@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import HomePageTitle from './HomePageTitle';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 describe('HomePageTitle', () => {
   let props;
@@ -12,7 +14,9 @@ describe('HomePageTitle', () => {
 
   test('should display the title', () => {
     const { queryByTestId } = render(
-      <HomePageTitle {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePageTitle {...props} />
+      </NativeBaseProvider>
     );
 
     const title = queryByTestId('title');
@@ -27,7 +31,9 @@ describe('HomePageTitle', () => {
     };
 
     const { queryByTestId } = render(
-      <HomePageTitle {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <HomePageTitle {...props} />
+      </NativeBaseProvider>
     );
 
     const title = queryByTestId('title');

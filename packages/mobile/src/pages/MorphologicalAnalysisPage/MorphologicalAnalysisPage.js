@@ -6,10 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import { object, string } from 'yup';
 
-import { Button, Container, Content, Form, Icon, Input, Item, Label, Spinner, Text } from 'native-base';
-
-import MenuIconButton from '../../components/MenuIconButton/MenuIconButton';
-import MorphologicalAnalysisPageTitle from './MorphologicalAnalysisPageTitle';
+import { Button, FormControl, Input, ScrollView, Spinner, Text } from 'native-base';
 
 import useApiUrl from '../../hooks/useApiUrl';
 
@@ -20,7 +17,7 @@ export default function MorphologicalAnalysisPage({ navigation }) {
   const [apiUrl] = useApiUrl();
 
   const analyzeWord = ({ input }, { setSubmitting }) => {
-    analyze(input, apiUrl)
+    analyze(input.toLowerCase(), apiUrl)
       .then(analysisResponses =>
         navigation.navigate('MorpherResponses', {
           responses: analysisResponses
@@ -30,74 +27,58 @@ export default function MorphologicalAnalysisPage({ navigation }) {
   };
 
   return (
-    <Container>
-      <Content padder>
-        <Formik
-          initialValues={{ input: '' }}
-          validationSchema={object({
-            input: string().required(t('input.RequiredError'))
-          })}
-          onSubmit={analyzeWord}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting
-          }) => (
-            <Form>
-              <Item
-                floatingLabel
-                last
-                error={touched.input && !!errors.input}
-              >
-                <Label testID="lemma-label">{t('input.Label')}</Label>
-                <Input
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  value={values.input}
-                  onChangeText={handleChange('input')}
-                  onBlur={handleBlur('input')}
-                  testID="lemma-input"
+    <ScrollView p="4">
+      <Formik
+        initialValues={{ input: '' }}
+        validationSchema={object({
+          input: string().required(t('input.RequiredError'))
+        })}
+        onSubmit={analyzeWord}
+      >
+        {({
+          values,
+          errors,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting
+        }) => (
+          <>
+            <FormControl isFullWidth>
+              <Input
+                autoCapitalize="none"
+                autoCorrect={false}
+                variant="rounded"
+                placeholder={t('input.Label')}
+                value={values.input}
+                onChangeText={handleChange('input')}
+                onBlur={handleBlur('input')}
+                testID="lemma-input"
+              />
+            </FormControl>
+
+            <Button
+              disabled={isSubmitting || !!errors.input || values.input.length === 0}
+              onPress={handleSubmit}
+              style={styles.submitButton}
+              testID="submit-button"
+            >
+              <Text testID="submit-button-text">{t('button.Label')}</Text>
+            </Button>
+
+            {
+              isSubmitting && (
+                <Spinner
+                  size="lg"
+                  style={styles.spinner}
+                  testID="loading-spinner"
                 />
-                {
-                  touched.input && !!errors.input && (
-                    <Icon
-                      type="MaterialIcons"
-                      name="error-outline"
-                      testID="lemma-warning-icon"
-                    />
-                  )
-                }
-              </Item>
-
-              <Button
-                full
-                rounded
-                disabled={isSubmitting}
-                onPress={handleSubmit}
-                style={styles.submitButton}
-                testID="submit-button"
-              >
-                <Text testID="submit-button-text">{t('button.Label')}</Text>
-              </Button>
-
-              {
-                isSubmitting && (
-                  <Spinner
-                    color="green"
-                    testID="loading-spinner"
-                  />
-                )
-              }
-            </Form>
-          )}
-        </Formik>
-      </Content>
-    </Container>
+              )
+            }
+          </>
+        )}
+      </Formik>
+    </ScrollView>
   );
 }
 
@@ -105,13 +86,11 @@ MorphologicalAnalysisPage.propTypes = {
   navigation: PropTypes.object.isRequired
 };
 
-MorphologicalAnalysisPage.navigationOptions = props => ({
-  headerTitle: () => <MorphologicalAnalysisPageTitle />,
-  headerLeft: () => <MenuIconButton onButtonPressed={props.navigation.toggleDrawer} />
-});
-
 const styles = StyleSheet.create({
   submitButton: {
     marginTop: 20
+  },
+  spinner: {
+    marginTop: 50
   }
 });

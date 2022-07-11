@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Icon } from 'native-base';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function HomePageDrawerIcon({ color }) {
   return (
     <Icon
-      type="MaterialIcons"
+      as={MaterialIcons}
       name="home"
       style={{ color }}
       testID="icon"

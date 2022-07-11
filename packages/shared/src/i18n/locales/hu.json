@@ -45,7 +45,8 @@
         "Title": "Beállítások",
         "ApiUrlEditorText": "Szerver oldal URL-jének megváltoztatása:",
         "apiUrl": {
-            "Label": "Szerver URL"
+            "Label": "Szerver URL",
+            "ErrorMessage": "A szerver URL megadása kötelező"
         },
         "LanguageChangeText": "Alkalmazás nyelvének megváltoztatása:",
         "languages": {

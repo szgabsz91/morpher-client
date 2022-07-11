@@ -1,8 +1,8 @@
 import React from 'react';
 import { Image, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
-import { DrawerItems } from 'react-navigation-drawer';
+import { DrawerItemList } from '@react-navigation/drawer';
 
-import morpherLogo from '@szg/morpher-client-shared/assets/morpher.png';
+const morpherLogo = require('../../assets/morpher.png');
 
 export default function MorpherDrawer(props) {
   return (
@@ -16,7 +16,7 @@ export default function MorpherDrawer(props) {
           />
         </View>
 
-        <DrawerItems
+        <DrawerItemList
           {...props}
           itemStyle={styles.drawerItem}
         />

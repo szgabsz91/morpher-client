@@ -11,8 +11,7 @@ describe('MorpherFooter', () => {
 
         const copyright = queryByTestId('copyright');
         expect(copyright).toBeTruthy();
-        expect(copyright.textContent).toContain('©');
-        expect(copyright.textContent).toContain(new Date().getFullYear());
+        expect(copyright.textContent).toBe(`© AuthorName ${new Date().getFullYear()}`);
     });
 
     test('should display the link', () => {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
-import { Body, CheckBox, Input, Item, ListItem, Spinner, Text } from 'native-base';
+import { Box, Checkbox, FormControl, Input, Spinner, Text } from 'native-base';
 
 import KeyValuePair from '../../components/KeyValuePair/KeyValuePair';
 
@@ -53,18 +53,27 @@ export default function AffixTypeList({
   };
 
   const renderAffixType = ({ item: affixType }) => (
-    <ListItem
+    <TouchableOpacity
       key={affixType}
+      borderBottomWidth="1"
       onPress={() => toggleAffixType(affixType)}
       testID="affix-type-list-item"
     >
-      <CheckBox
-        checked={selectedAffixTypes.includes(affixType)}
-        onPress={() => toggleAffixType(affixType)}
-        testID="affix-type-checkbox"
-      />
+      <Box
+        borderBottomWidth="1"
+        borderColor="coolGray.300"
+        p="4"
+        style={styles.affixTypeRow}
+      >
+        <Box mr="4">
+          <Checkbox
+            isChecked={selectedAffixTypes.includes(affixType)}
+            style={styles.checkbox}
+            onChange={() => toggleAffixType(affixType)}
+            testID="affix-type-checkbox"
+          />
+        </Box>
 
-      <Body>
         <KeyValuePair
           header={t(`${affixType}.DisplayName`)}
           subheader={t('Sample', {
@@ -72,8 +81,8 @@ export default function AffixTypeList({
             inflectedForm: t(`${affixType}.SampleInflectedForm`)
           })}
         />
-      </Body>
-    </ListItem>
+      </Box>
+    </TouchableOpacity>
   );
 
   const renderAffixTypeList = () => {
@@ -108,11 +117,9 @@ export default function AffixTypeList({
 
   return (
     <>
-      <Item
-        rounded
-        style={styles.filterInput}
-      >
+      <FormControl style={styles.filterInput}>
         <Input
+          variant="rounded"
           placeholder={t('filter.Label')}
           autoCapitalize="none"
           autoCorrect={false}
@@ -120,7 +127,7 @@ export default function AffixTypeList({
           onChangeText={setAffixTypeFilterString}
           testID="filter-text-input"
         />
-      </Item>
+      </FormControl>
 
       {
         renderAffixTypeList()
@@ -138,7 +145,13 @@ AffixTypeList.propTypes = {
 
 const styles = StyleSheet.create({
   filterInput: {
-    marginBottom: 5
+    marginBottom: 10
+  },
+  affixTypeRow: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   errorMessage: {
     marginTop: 50,

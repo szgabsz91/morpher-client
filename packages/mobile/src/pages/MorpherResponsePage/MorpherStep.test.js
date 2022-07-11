@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
+import { NativeBaseProvider } from 'native-base';
 
 import MorpherStep from './MorpherStep';
+import { initialWindowMetrics } from '../../testing/initialWindowMetrics';
 
 import { inflectionResponse } from '@szg/morpher-client-shared';
 
@@ -16,7 +18,9 @@ describe('MorpherStep', () => {
 
   test('should display the affix type', () => {
     const { queryByTestId } = render(
-      <MorpherStep {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherStep {...props} />
+      </NativeBaseProvider>
     );
 
     const affixTypeText = queryByTestId('affix-type-text');
@@ -36,7 +40,9 @@ describe('MorpherStep', () => {
     };
 
     const { queryAllByTestId } = render(
-      <MorpherStep {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherStep {...props} />
+      </NativeBaseProvider>
     );
 
     const subheaders = queryAllByTestId('subheader');
@@ -50,7 +56,9 @@ describe('MorpherStep', () => {
 
   test('should display the transformation if the affix type is not a POS', () => {
     const { queryAllByTestId } = render(
-      <MorpherStep {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherStep {...props} />
+      </NativeBaseProvider>
     );
 
     const subheaders = queryAllByTestId('subheader');
@@ -64,7 +72,9 @@ describe('MorpherStep', () => {
 
   test('should display the aggregated probability', () => {
     const { queryAllByTestId } = render(
-      <MorpherStep {...props} />
+      <NativeBaseProvider initialWindowMetrics={initialWindowMetrics}>
+        <MorpherStep {...props} />
+      </NativeBaseProvider>
     );
 
     const subheaders = queryAllByTestId('subheader');
