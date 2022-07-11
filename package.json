@@ -1,6 +1,6 @@
 {
   "name": "@szg/morpher-client",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A React and React Native client for the Morpher inflection and morphological analysis framework",
   "private": true,
   "scripts": {
