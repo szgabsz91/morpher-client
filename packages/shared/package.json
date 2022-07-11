@@ -1,6 +1,6 @@
 {
   "name": "@szg/morpher-client-shared",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "The shared module of the Morpher Client application that contains translations and HTTP services",
   "private": true,
   "main": "./src/index.js",
