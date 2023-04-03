@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: morpher-api
+  labels:
+    application: morpher
+    tier: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: morpher
+      tier: api
+  template:
+    metadata:
+      labels:
+        application: morpher
+        tier: api
+    spec:
+      hostname: morpher-api
+      containers:
+        - image: szgabsz91/morpher-api:1.8.0
+          name: morpher-api
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: morpher-api
+  labels:
+    application: morpher
+    tier: api
+spec:
+  selector:
+    application: morpher
+    tier: api
+  ports:
+    - name: "8080"
+      port: 8080
+      targetPort: 8080
