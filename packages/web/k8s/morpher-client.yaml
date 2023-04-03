@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: morpher-client
+  labels:
+    application: morpher
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: morpher
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        application: morpher
+        tier: frontend
+    spec:
+      hostname: morpher-client
+      containers:
+        - image: szgabsz91/morpher-client:2.1.0
+          name: morpher-client
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: morpher-client
+  labels:
+    application: morpher
+    tier: frontend
+spec:
+  selector:
+    application: morpher
+    tier: frontend
+  ports:
+    - name: "80"
+      port: 80
+      targetPort: 80
