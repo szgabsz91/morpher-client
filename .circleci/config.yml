@@ -1,0 +1,85 @@
+version: 2.1
+
+executors:
+    morpher-client-executor:
+        docker:
+            - image: cimg/node:16.20.0-browsers
+        working_directory: ~/morpher-client
+
+jobs:
+    build:
+        executor: morpher-client-executor
+        steps:
+            - checkout
+            - run:
+                name: Install dependencies
+                command: yarn
+            - run:
+                name: Bootstrap monorepo
+                command: yarn bootstrap
+            - run:
+                name: Lint
+                command: yarn lint
+            - run:
+                name: Test
+                command: yarn test
+            - run:
+                name: Build shared module
+                command: yarn build:shared
+            - run:
+                name: Build mobile application
+                command: yarn build:mobile
+            - run:
+                name: Build web application
+                command: yarn build:web
+            - persist_to_workspace:
+                root: .
+                paths:
+                    - .
+
+    publish-latest-docker-image:
+        machine: true
+        steps:
+            - attach_workspace:
+                at: .
+            - run:
+                name: Build and publish latest Docker image
+                command: ./scripts/publish-docker-image.sh latest
+
+    publish-tagged-docker-image:
+        machine: true
+        steps:
+            - attach_workspace:
+                at: .
+            - run:
+                name: Build and publish tagged Docker image
+                command: |
+                    VERSION=$(cat lerna.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g')
+                    ./scripts/publish-docker-image.sh $VERSION
+
+workflows:
+    version: 2
+    build-and-publish:
+        jobs:
+            - build:
+                filters:
+                    tags:
+                        only: /.+/
+                    branches:
+                        only: /.+/
+            - publish-latest-docker-image:
+                filters:
+                    tags:
+                        ignore: /.+/
+                    branches:
+                        only: master
+                requires:
+                    - build
+            - publish-tagged-docker-image:
+                filters:
+                    tags:
+                        only: /.+/
+                    branches:
+                        ignore: /.*/
+                requires:
+                    - build

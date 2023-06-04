@@ -1,12 +1,12 @@
 {
   "name": "@szg/morpher-client-web",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "The web version of the Morpher Client application",
   "private": true,
   "scripts": {
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
-    "test": "react-scripts test --watchAll=false --coverage",
+    "test": "react-scripts test --watchAll=false --coverage --maxWorkers=4",
     "test:watch": "react-scripts test",
     "build": "react-scripts build",
     "start": "react-scripts start"
@@ -14,7 +14,7 @@
   "dependencies": {
     "@material-ui/core": "4.12.3",
     "@material-ui/icons": "4.11.2",
-    "@szg/morpher-client-shared": "2.1.0",
+    "@szg/morpher-client-shared": "2.1.1",
     "clsx": "1.2.1",
     "formik": "2.2.9",
     "i18next": "21.8.13",
@@ -66,7 +66,7 @@
   "engineStrict": true,
   "engines": {
     "node": ">=12.13.1",
-    "yarn": ">=1.21.1"
+    "yarn": ">=1.22.18"
   },
   "keywords": [
     "morpher",
