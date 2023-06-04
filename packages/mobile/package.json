@@ -1,6 +1,6 @@
 {
   "name": "@szg/morpher-client-mobile",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "The mobile version of the Morpher Client application",
   "private": true,
   "main": "./src/index.js",
@@ -23,7 +23,7 @@
     "@react-navigation/drawer": "6.3.3",
     "@react-navigation/native": "6.0.8",
     "@react-navigation/native-stack": "6.5.2",
-    "@szg/morpher-client-shared": "2.1.1",
+    "@szg/morpher-client-shared": "2.1.2",
     "expo": "44.0.6",
     "expo-status-bar": "1.2.0",
     "formik": "2.2.9",
