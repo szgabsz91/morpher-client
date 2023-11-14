@@ -1,7 +1,7 @@
 # Morpher Client
 
 [![Build Status](https://img.shields.io/circleci/project/github/szgabsz91/morpher-client/master.svg)](https://circleci.com/gh/szgabsz91/workflows/morpher-client)
-[![Docker Hub](https://images.microbadger.com/badges/version/szgabsz91/morpher-client.svg)](https://microbadger.com/images/szgabsz91/morpher-client "Docker Hub")
+[![Docker Hub](https://img.shields.io/docker/v/szgabsz91/morpher-client?label=docker)](https://hub.docker.com/repository/docker/szgabsz91/morpher-client)
 [![License](https://img.shields.io/github/license/szgabsz91/morpher-client.svg)](https://github.com/szgabsz91/morpher-client/blob/master/LICENSE)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
